@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :user_trips, only: %i[] do
-    resources :expenses, only: %i[create]
+    resources :expenses, only: %i[create new]
   end
 
   resources :expenses, only: %i[index]
