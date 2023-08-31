@@ -4,5 +4,20 @@
       <h1>Plan a new trip</h1>
       <h5>Build an itinerary and map out your upcoming travel plans</h5>
     </div>
+    <div class="row">
+      <%= simple_form_for (@trip) do |f| %>
+        <div class="row">
+      <%= f.input :destination, placeholder: "Where to?" %>
+      </div>
+        <div class="row">
+      <%= f.input :start_date, as: :date, html5: true, class:"col-6"%>
+      <%= f.input :end_date, as: :date, html5: true, class:"col-6" %>
+      </div>
+      <%= f.fields_for :user_trips do |user_trip| %>
+        <%= user_trip.input :user, collection: User.all, required: false %>
+      <% end %>
+      <%= f.button :submit, "Plan It", class: 'btn-primary' %>
+      <% end %>
+    </div>
   </div>
 </div>
