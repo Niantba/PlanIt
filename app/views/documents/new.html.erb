@@ -2,7 +2,7 @@
 <h1>Add a document</h1>
  <%= simple_form_for(@document) do |f| %>
     <%= f.input :name, label: "Name of file" %>
-    <%= f.input :name, label: "Attach your file" %>
+    <%= f.input :file, as: :file, label: "Attach your file" %>
     <%= f.button :submit, "Add document", class: 'btn-primary' %>
   <% end %>
 </div>
