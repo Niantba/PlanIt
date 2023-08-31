@@ -1,13 +1,18 @@
-<h1>New Expense</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>New Expense</h1>
+    </div>
+      <%= simple_form_for [@trip, @expense] do |f| %>
+        <%#= f.association :activity, collection: Activity.where(trip: @trip) %>
+        <%= f.input :name %>
+        <%= f.input :amount %>
+        <%= f.input :category %>
+        <%= f.input :paid_by %>
+        <%= f.input :paid_for %>
 
-<%= simple_form_for [@trip, @expense] do |f| %>
-  <%= f.input :activity %>
-  <%= f.input :amount %>
-  <%= f.input :category %>
-  <%= f.input :paid_by %>
-  <%= f.input :paid_for %>
-
-  <%= f.button :submit, "Create Expense" %>
-<% end %>
-
-<%= link_to "Back to Expenses", expenses_path %>
+        <%= f.button :submit, "Create Expense" %>
+      <% end %>
+  </div>
+</div>
+<%= link_to "Back to Expenses", trip_expenses_path %>

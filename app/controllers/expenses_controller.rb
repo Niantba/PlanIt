@@ -8,20 +8,31 @@ class ExpensesController < ApplicationController
   def new
     @trip = Trip.find(params[:trip_id])
     if @trip
-      @expense = Expenses.new
+      @expense = Expense.new
+      authorize @expense
     else
-      # Manejo si el UserTrip no existe
     end
   end
 
   def create
-    @trip = Trip.find(params[:trip_id])
-    @expense = @trip.expenses.create(expense_params)
 
+    @trip = Trip.find(params[:trip_id])
+    authorize @trip, policy_class: ExpensePolicy
+    @expense = Expense.new(expense_params)
+    @expense.trip = @trip
+    @expense.user = current_user
+    # @expense.activity = Activity.find(params[:expense][:activity].to_i)
     if @expense.save
-      redirect_to expenses_path, status: :unprocessable_entity
+
+      redirect_to trip_expenses_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def expense_params
+    params.require(:expense).permit(:amount, :category, :paid_by, :paid_for)
   end
 end
