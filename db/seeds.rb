@@ -10,6 +10,8 @@ require "faker"
 
 Document.destroy_all
 User.destroy_all
+Trip.destroy_all
+Activity.destroy_all
 
 marcela = User.new(first_name: "Marcela", last_name: "Langarica", email: "marcela@email.com", password: "123456")
 marcela.save!
@@ -22,18 +24,18 @@ audrey.save!
 
 5.times do
   trip = Trip.new(
-    start_date: Faker::Date.between(from: '2023-09-01', to: '2024-09-01'),
-    end_date: Faker::Date.between(from: '2023-09-02', to: '2024-09-01'),
+    start_date: Date.new(2023, 8, 31),
+    end_date: Date.new(2023, 9, 10),
     destination: Faker::WorldCup.city,
     private: Faker::Boolean.boolean
   )
   trip.save!
   5.times do
     activities = Activity.new(
-      name: ["marcela", "sergio", "grace", "audrey"],
+      name: Faker::WorldCup.city,
       location: Faker::WorldCup.city,
-      start_date: Faker::Date.between(from: '2023-09-01', to: '2024-09-01'),
-      end_date: Faker::Date.between(from: '2023-09-02', to: '2024-09-01'),
+      start_date: Faker::Date.between(from: '2023-08-31', to: '2023-09-05'),
+      end_date: Faker::Date.between(from: '2023-09-05', to: '2023-09-10'),
       category: Faker::Commerce.department,
       price: rand(150)
     )
@@ -41,6 +43,8 @@ audrey.save!
     activities.save!
   end
 end
+
+put "Seeds created"
 
 # 5.times do
 #   expense = Expense.new(

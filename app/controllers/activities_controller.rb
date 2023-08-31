@@ -3,8 +3,12 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @trip = Trip.find(params[:id])
-    @activities = Activity.all
-    @activity = Activity.new
+    raise
+  end
+
+  private
+
+  def activity_params
+    params.require(:activity).permit(:location, :category, :start_date, :price)
   end
 end

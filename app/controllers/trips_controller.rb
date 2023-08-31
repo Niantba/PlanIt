@@ -5,7 +5,7 @@ class TripsController < ApplicationController
     authorize @trip
   end
 
-  def create    
+  def create
     @trip = Trip.new(trip_params)
     authorize @trip
     if @trip.save
@@ -21,6 +21,8 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     authorize @trip
+    @activities = Activity.where(trip: @trip)
+    @activity = Activity.new
   end
 
   def index
