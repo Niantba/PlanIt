@@ -2,14 +2,11 @@
 
 <%# Profile banner %>
   <h5>*Avatar Picture*</h5>
-  <% if @user.image %>
+  <% if @user.image.attached? %>
       <%= cl_image_tag @user.image.key, height: 300, width: 300, crop: :fill %>
   <% else %>
     <%# Upload image %>
-    <%= simple_form_for(@user) do |f| %>
-        <%= f.input :image, as: :file %>
-        <%= f.button :submit, "Add picture", class: 'btn-primary' %>
-    <% end %>
+    <h5>Upload image</h5>
   <% end %>
   <h1><%= @user.first_name %></h1>
 
