@@ -1,8 +1,11 @@
 <h1>New Expense</h1>
 
-<%= simple_form_for [@user_trip, Expense.new] do |f| %>
-  <%= f.input :name %>
+<%= simple_form_for [@trip, @expense] do |f| %>
+  <%= f.input :activity %>
   <%= f.input :amount %>
+  <%= f.input :category %>
+  <%= f.input :paid_by %>
+  <%= f.input :paid_for %>
 
   <%= f.button :submit, "Create Expense" %>
 <% end %>

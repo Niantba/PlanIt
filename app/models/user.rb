@@ -5,8 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :user_trips
+  has_many :trips, through: :user_trips
   has_many :documents
   has_many :comments
+  has_many :expenses
   has_one_attached :image
 
   validates :first_name, :last_name, :email, presence: true
