@@ -8,6 +8,7 @@
 
 require "faker"
 
+Document.destroy_all
 User.destroy_all
 
 marcela = User.new(first_name: "Marcela", last_name: "Langarica", email: "marcela@email.com", password: "123456")
