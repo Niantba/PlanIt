@@ -6,7 +6,6 @@ class TripsController < ApplicationController
   end
 
   def create
-    raise
     @trip = Trip.new(trip_params)
     authorize @trip
     if @trip.save
@@ -20,6 +19,8 @@ class TripsController < ApplicationController
   end
 
   def show
+    @trip = Trip.find(params[:id])
+    authorize @trip
   end
 
   def index
@@ -29,5 +30,8 @@ class TripsController < ApplicationController
 
   def trip_params
     params.require(:trip).permit(:start_date, :end_date,  :destination)
+  end
+
+  def user_trips_params
   end
 end

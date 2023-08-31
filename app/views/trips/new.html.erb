@@ -14,7 +14,7 @@
       <%= f.input :end_date, as: :date, html5: true, class:"col-6" %>
       </div>
       <%= f.fields_for :user_trips do |user_trip| %>
-        <%= user_trip.input :user, collection: User.all %>
+        <%= user_trip.input :user, collection: User.all, required: false %>
       <% end %>
       <%= f.button :submit, "Plan It", class: 'btn-primary' %>
       <% end %>
