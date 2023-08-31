@@ -1,5 +1,5 @@
-.trip-banner {
-  background-image: url("assets/Colombia.jpg");
+.banner {
+  background-image: url("assets/home-banner.jpg");
   background-size: cover;
   height: 180px;
   display: flex;
@@ -7,14 +7,14 @@
   align-items: flex-end;
 }
 
-.trip-banner-card {
+.banner-profile {
   background-color: rgba(250, 243, 232, 0.8);
   width: 80%;
   padding: 20px;
   border-radius: 20px;
 }
 
-.trip-banner-card h1,
-.trip-banner-card p {
+.banner-profile h1,
+.banner-profile p {
   text-align: center;
 }
