@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :documents
   has_many :comments
   has_many :expenses
+  has_one_attached :image
 
   validates :first_name, :last_name, :email, presence: true
 end

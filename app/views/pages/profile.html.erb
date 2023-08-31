@@ -1,0 +1,34 @@
+<div class= "container">
+
+<%# Profile banner %>
+  <h5>*Avatar Picture*</h5>
+  <% if @user.image.attached? %>
+      <%= cl_image_tag @user.image.key, height: 300, width: 300, crop: :fill %>
+  <% else %>
+    <%# Upload image %>
+    <h5>Upload image</h5>
+  <% end %>
+  <h1><%= @user.first_name %></h1>
+
+<%# Friends scrolling bar %>
+  <h2>Friends</h2>
+  <%# For each friend %>
+
+<%# Upcoming trips scrolling bar %>
+  <h2>Upcoming trips</h2>
+  <%# For each trip %>
+
+<%# Documents scrolling bar %>
+  <h2>Your documents</h2>
+  <%# Add document form %>
+  <%= simple_form_for(@document) do |f| %>
+    <%= f.input :name, label: "Name of file" %>
+    <%= f.input :file, as: :file, label: "Attach your file" %>
+    <%= f.button :submit, "Add document", class: 'btn-primary' %>
+  <% end %>
+
+<%# Previous trips scrolling bar %>
+    <h2>Previous trips</h2>
+    <%# For each trip %>
+
+</div>
