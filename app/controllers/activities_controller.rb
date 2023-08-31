@@ -3,6 +3,8 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    # add an instance of trip
+    @trip = Trip.find(params[:id])
+    @activities = Activity.all
+    @activity = Activity.new
   end
 end
