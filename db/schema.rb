@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_29_155707) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_31_184955) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,8 +50,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_155707) do
     t.bigint "activity_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.string "activity"
+    t.float "amount"
+    t.string "category"
+    t.string "paid_by"
+    t.string "paid_for"
     t.index ["activity_id"], name: "index_expenses_on_activity_id"
     t.index ["trip_id"], name: "index_expenses_on_trip_id"
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -93,6 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_155707) do
   add_foreign_key "documents", "users"
   add_foreign_key "expenses", "activities"
   add_foreign_key "expenses", "trips"
+  add_foreign_key "expenses", "users"
   add_foreign_key "user_trips", "trips"
   add_foreign_key "user_trips", "users"
 end

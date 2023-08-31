@@ -1,13 +1,22 @@
 class ExpensesController < ApplicationController
   def index
-    @user_trips = current_user.user_trips
-    @expenses = Expense.where(user_trip_id: @user_trips)
+    @trips = current_user.trips
+    @expenses = Expense.where(trip_id: @trips)
     @expenses = policy_scope(Expense)
   end
 
+  def new
+    @trip = Trip.find(params[:trip_id])
+    if @trip
+      @expense = Expenses.new
+    else
+      # Manejo si el UserTrip no existe
+    end
+  end
+
   def create
-    @user_trips = UserTrip.find(params[:user_trip_id])
-    @expense = @user_trips.expenses.create(expense_params)
+    @trip = Trip.find(params[:trip_id])
+    @expense = @trip.expenses.create(expense_params)
 
     if @expense.save
       redirect_to expenses_path, status: :unprocessable_entity

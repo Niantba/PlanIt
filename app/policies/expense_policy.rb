@@ -10,7 +10,5 @@ class ExpensePolicy < ApplicationPolicy
     # end
   end
 
-  def index?
-    true
-  end
+
 end
