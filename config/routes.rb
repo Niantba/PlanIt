@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :trips, only: %i[new create update show index] do
     resources :user_trips, only: %i[new create]
     resources :activities, only: %i[create]
+    resources :expenses, only: %i[index create new]
   end
 
   resources :documents, only: %i[new create delete]
@@ -16,10 +17,4 @@ Rails.application.routes.draw do
   resources :activities, only: %i[delete] do
     resources :comments, only: %i[create]
   end
-
-  resources :user_trips, only: %i[] do
-    resources :expenses, only: %i[create new]
-  end
-
-  resources :expenses, only: %i[index]
 end
