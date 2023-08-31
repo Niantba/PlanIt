@@ -1,2 +1,56 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <h1>Plan It</h1>
+
+  <%# plan a new trip button inside banner %>
+  <div class="banner" style="background-image: url('https://images.unsplash.com/photo-1682685797140-c17807f8f217?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80')">
+    <%= link_to "Plan a new trip", new_trip_path, class: "btn btn-primary" %>
+  </div>
+
+  <h3 class="py-3"> Upcoming trips </h3>
+  <div class="row">
+    <div class="scrollmenu">
+      <% @trips.each do |trip| %>
+        <div class="card">
+          <div class="col-2">
+            <p><%= trip.destination %></p>
+            <p><%= trip.start_date %></p>
+            <p><%= trip.end_date %></p>
+            <%# private boolean? %>
+            <%# <a href="<%= trip_path(trip) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <h3 class="py-3"> Featured guides </h3>
+  <div class="row">
+    <div class="scrollmenu">
+      <% @trips.each do |trip| %>
+        <div class="card">
+          <div class="col-2">
+            <p><%= trip.destination %></p>
+            <%# private boolean? %>
+            <%# <a href="<%= trip_path(trip) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <h3 class="py-3"> Popular destinations </h3>
+  <div class="row">
+    <div class="scrollmenu">
+      <% @trips.each do |trip| %>
+        <div class="card">
+          <div class="col-2">
+            <p><%= trip.destination %></p>
+            <%# private boolean? %>
+            <%# <a href="<%= trip_path(trip) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
