@@ -5,8 +5,7 @@ class TripsController < ApplicationController
     authorize @trip
   end
 
-  def create
-    raise
+  def create    
     @trip = Trip.new(trip_params)
     authorize @trip
     if @trip.save
