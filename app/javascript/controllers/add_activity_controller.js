@@ -6,17 +6,18 @@ export default class extends Controller {
   connect() {
   }
 
-  add() {
-    this.formTarget.classList.remove("d-none")
-  }
+  // add() {
+  //   this.formTarget.classList.toggle("d-none")
+  // }
 
   close(event) {
-    event.preventDefault()
-    if(this.element === this.formTarget || this.formTarget.contains(event.target)
-       || this.element === this.plusTarget || this.plusTarget.contains(event.target)) {
-      console.log("clique");
-    } else {
-      this.formTarget.classList.add("d-none");
-    }
+    // console.log(this.element);
+    // event.preventDefault()
+    // // if form form.classList.contain("d-none")
+    // if(this.formTarget.contains(event.target)|| this.plusTarget.contains(event.target)) {
+    //   console.log("clique");
+    // } else {
+    //   // this.formTarget.classList.add("d-none");
+    // }
   }
 }
