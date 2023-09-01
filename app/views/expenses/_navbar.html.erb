@@ -1,7 +1,8 @@
 <nav class="navbar-planit">
-  <a class="navbar-brand d-flex justify-content-center">
-  <%= link_to content_tag(:i, "", class: "fas fa-home"), root_path %>
-  <%= link_to content_tag(:i, "", class: "fa-regular fa-calendar-days"), trips_path %>
-  <%= link_to content_tag(:i, "", class: "fa-regular fa-money-bill-1"), trip_expenses_path %>
-  <%= link_to content_tag(:i, "", class: "fa-solid fa-user"), profile_path %></a>
+  <div class="d-flex justify-content-between align-items-center px-3">
+  <%= link_to content_tag(:i, "", class: "fas fa-home m-2"), root_path %>
+  <%= link_to content_tag(:i, "", class: "fa-regular fa-calendar-days m-2"), trips_path %>
+  <%= link_to content_tag(:i, "", class: "fa-regular fa-money-bill-1 m-2"), trip_expenses_path %>
+  <%= link_to content_tag(:i, "", class: "fa-solid fa-user m-2"), profile_path %>
+  </div>
 </nav>
