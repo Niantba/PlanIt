@@ -1,7 +1,7 @@
 <nav class="navbar-planit">
   <div class="d-flex justify-content-center">
   <%= link_to content_tag(:i, "", class: "fas fa-home"), root_path %>
-  <%= link_to content_tag(:i, "", class: "fa-regular fa-calendar-days"), trips_path %>
+  <%= link_to content_tag(:i, "", class: "fa-regular fa-calendar-days"), trip_path(@trip) %>
   <%= link_to content_tag(:i, "", class: "fa-regular fa-money-bill-1"), new_trip_expense_path(@trip) %>
   <%= link_to content_tag(:i, "", class: "fa-solid fa-user"), profile_path %>
   </div>
