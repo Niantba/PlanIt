@@ -3,7 +3,16 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    raise
+    @trip = Trip.find(params[:trip_id])
+    @activity = Activity.new(activity_params)
+    @activity.trip = @trip
+    @activities = Activity.where(trip: @trip)
+    authorize @activity
+    if @activity.save
+      redirect_to trip_path(@trip)
+    else
+      render "trips/show", status: :unprocessable_entity
+    end
   end
 
   private
