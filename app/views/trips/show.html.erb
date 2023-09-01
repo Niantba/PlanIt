@@ -1,16 +1,9 @@
-<div data-controller="add-activity"
-     data-action="click@window->add-activity#close">
-
 <%# Banner %>
-  <%= render "layouts/trip_banner" %>
+<%= render "layouts/trip_banner" %>
 
-  <div class="container">
-    <%# Days %>
-    <%= render "days" %>
-  </div>
-
-  <%# Add activity %>
-  <%= render "add_activity" %>
+<div class="container">
+  <%# Days %>
+  <%= render "trips/days" %>
 </div>
 
-<%= render "navbartrips" %>
+<%= render "trips/navbartrips" %>

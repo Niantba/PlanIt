@@ -6,9 +6,9 @@ export default class extends Controller {
   connect() {
   }
 
-  // add() {
-  //   this.formTarget.classList.toggle("d-none")
-  // }
+  add() {
+    this.formTarget.classList.toggle("d-none")
+  }
 
   close(event) {
     // console.log(this.element);
