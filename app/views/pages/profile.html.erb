@@ -7,11 +7,11 @@
       <% else %>
         <h5><%= link_to "Upload image", edit_user_registration_path %></h5>
       <% end %>
-      <h1>@<%= @user.first_name %><%= @user.last_name %></h1>
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
     </div>
   </div>
 
-<%# Friends scroll menu %>
+  <%# Friends scroll menu %>
   <h2>Friends</h2>
   <%# For each friend %>
   <div class="row">
@@ -22,7 +22,6 @@
             <%= cl_image_tag @user.image.key%>
           <% else %>
             <p><%= user.first_name %></p>
-            <p><%= user.last_name %></p>
           <% end %>
         </div>
       <% end %>
@@ -37,8 +36,6 @@
         <div class="profile-trip-card">
           <img src="https://source.unsplash.com/random/?travel", class="object-fit-cover", alt="<%= trip.destination %>"/>
           <p><%= trip.destination %></p>
-          <p><%= trip.start_date %></p>
-          <p><%= trip.end_date %></p>
           <%# private boolean? %>
           <%# <a href="<%= trip_path(trip) %>
         </div>
