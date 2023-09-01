@@ -1,8 +1,10 @@
 class ExpensesController < ApplicationController
+  after_action :verify_authorized, except: [:index]
   def index
-    @trips = current_user.trips
-    @expenses = Expense.where(trip_id: @trips)
-    @expenses = policy_scope(Expense)
+    @trips = Trip.find(params[:trip_id])
+    @expenses = Expense.where(trip: @trips)
+    # @expenses = policy_scope(Expense)
+    # authorize @expenses, policy_scope: ExpensePolicy
   end
 
   def new
@@ -15,7 +17,6 @@ class ExpensesController < ApplicationController
   end
 
   def create
-
     @trip = Trip.find(params[:trip_id])
     authorize @trip, policy_class: ExpensePolicy
     @expense = Expense.new(expense_params)
@@ -33,6 +34,6 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:amount, :category, :paid_by, :paid_for)
+    params.require(:expense).permit(:amount, :category, :paid_by, :paid_for, :name)
   end
 end
