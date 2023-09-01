@@ -5,7 +5,7 @@ class TripsController < ApplicationController
     authorize @trip
   end
 
-  def create    
+  def create
     @trip = Trip.new(trip_params)
     authorize @trip
     if @trip.save
@@ -25,6 +25,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
+    @trips = policy_scope(Trip)
   end
 
   private

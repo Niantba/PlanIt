@@ -1,8 +1,21 @@
-<h1>Expenses</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Expenses</h1>
+      <ul class="expense-list">
+        <% @expenses.each do |expense| %>
+          <li class="expense-item">
+            <span class="expense-name"><%= expense.name %></span>
+            <span class="expense-amount"><%= expense.amount %></span>
+            <span class="expense-category"><%= expense.category %></span>
+            <span class="expense-paid_by"><%= expense.paid_by %></span>
 
-<% @expenses.each do |expense| %>
-  <%= expense.name %>
-  <%= expense.amount %>
-<% end %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "New Expense", new_trip_expense_path, class: "new-expense-link" %>
+    </div>
+  </div>
+</div>
 
-<%= link_to "New Expense", new_trip_expense_path %>
+<%= render "navbar" %>

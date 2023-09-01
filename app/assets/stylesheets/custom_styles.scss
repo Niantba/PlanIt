@@ -1,0 +1,39 @@
+
+body {
+  background-color: #FEF3E0;
+  font-family: 'Helvetica', sans-serif;
+}
+
+h1 {
+  font-family: 'Helvetica Neue', sans-serif; /* Cambia esto a la fuente que deseas */
+}
+
+#newtrip {
+  margin-top: -10px; /* Ajusta la cantidad de desplazamiento según tus necesidades */
+}
+
+.navbar-planit {
+  background-color: #130056;
+  color: white;
+  padding: 10px; /* Espacio alrededor de los iconos */
+  font-size: 24px; /* Tamaño de los iconos */
+  overflow: hidden;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  }
+
+/* Estilo para los iconos */
+.navbar-planit i {
+  margin-right: 40px; /* Espacio entre los iconos */
+}
+
+/* Cambiar el color de los iconos */
+.navbar-planit i {
+  color: white;
+}
+
+/* Cambiar el color de los iconos al pasar el mouse sobre ellos */
+.navbar-planit i:hover {
+  color: #ff9900;
+}

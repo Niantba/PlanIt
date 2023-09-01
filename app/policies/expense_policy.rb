@@ -1,8 +1,8 @@
 class ExpensePolicy < ApplicationPolicy
   class Scope < Scope
-    def resolve
-      scope.all
-    end
+    # def resolve
+    #   record
+    # end
 
     # NOTE: Be explicit about which records you allow access to!
     # def resolve

@@ -11,8 +11,10 @@
         <%= f.input :paid_by %>
         <%= f.input :paid_for %>
 
+
         <%= f.button :submit, "Create Expense" %>
       <% end %>
   </div>
 </div>
-<%= link_to "Back to Expenses", trip_expenses_path %>
+
+<%= render "navbar" %>
