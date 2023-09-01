@@ -11,9 +11,12 @@
                     input_html: { data: { controller: "flatpickr" } } %>
         <%= f.input :end_date, as: :string,
                     input_html: { data: { controller: "flatpickr" } } %>
-        <%= f.fields_for :user_trips do |user_trip| %>
-          <%= user_trip.input :user, collection: User.all, required: false %>
-        <% end %>
+        <%= f.association :users,
+                          as: :check_boxes,
+                          input_html: { multiple: true },
+                          include_hidden: false,
+                          collection: User.all,
+                          label_method: :first_name %>
         <%= f.button :submit, "Plan It", class: 'btn-primary' %>
       <% end %>
     </div>

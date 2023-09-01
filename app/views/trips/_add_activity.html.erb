@@ -1,6 +1,5 @@
 <div class="form d-none"
-       data-add-activity-target="form"
-       data-action="click@window->add-activity#close">
+       data-add-activity-target="form">
     <h1>Add a new activity</h1>
     <%= simple_form_for [@trip, @activity] do |f| %>
         <%= f.input :location, placeholder: "Location", label: false %>
