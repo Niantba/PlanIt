@@ -5,14 +5,18 @@
       <div class="day-date-icons">
         <i class="fa-solid fa-circle-plus" data-action="click->add-activity#add" data-add-activity-target="plus"></i>
         <i class="fa-solid fa-paperclip"></i>
-        <i class="fa-regular fa-comment-dots"></i>
       </div>
     </div>
     <%# Activities %>
     <% if @activities.any? %>
       <% @activities.where(":date >= start_date AND :date <= end_date", date: date).each do |activity| %>
         <div class="day-activity">
+          <div class="row">
           <p><%= activity.name %></p>
+          <% render "add_comment" %>
+          <i class="fa-regular fa-comment-dots" data-action="click->add_comment#add" data-add-comment-target="comment"></i>
+          </div>
+
         </div>
       <% end %>
     <% else %>
@@ -20,3 +24,5 @@
     <% end %>
   </div>
 <% end %>
+
+<%# Comments %>

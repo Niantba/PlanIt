@@ -16,10 +16,4 @@ class PagesController < ApplicationController
     # Trips
     @trips = Trip.all
   end
-
-  # private
-
-  # def user_params
-  #   params.require(:user).permit(:image)
-  # end
 end

@@ -1,0 +1,18 @@
+<div class= "form d-none"
+        data-add-comment-target="form"
+        data-action="click@window->add-comment#close">
+    <h1>All comments</h1>
+    <% if @comments.any? %>
+      <div class="each-comment">
+        <% @comments.each do |comment| %>
+          <p><%= comment.comment %></p>
+        <% end %>
+      </div>
+    <% else %>
+      <p>No comments</p>
+    <% end %>
+    <%= simple_form_for [@activity, @comment] do |f| %>
+        <%= f.input :comment, placeholder: "Add comment", label: false %>
+        <%= f.button :submit, "Add comment", class:"form-btn" %>
+      <% end %>
+</div>

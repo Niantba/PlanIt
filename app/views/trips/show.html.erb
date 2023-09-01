@@ -1,13 +1,18 @@
 <div data-controller="add-activity">
+<div data-controller="add-comment">
+  <%# Banner %>
+    <%= render "layouts/trip_banner" %>
 
-<%# Banner %>
-  <%= render "layouts/trip_banner" %>
+    <div class="container">
+      <%# Days %>
+      <%= render "days" %>
+    </div>
 
-  <div class="container">
-    <%# Days %>
-    <%= render "days" %>
-  </div>
+    <%# Add activity %>
+    <%= render "add_activity" %>
 
-  <%# Add activity %>
-  <%= render "add_activity" %>
+    <%# Add comment %>
+</div>
+
+
 </div>
