@@ -13,7 +13,6 @@ class ExpensesController < ApplicationController
       @expense = Expense.new
       authorize @expense
     else
-      # Manejo si el UserTrip no existe
     end
   end
 

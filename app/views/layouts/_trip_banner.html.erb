@@ -1,0 +1,15 @@
+<div class="trip-banner">
+  <div class="trip-banner-card">
+    <h1><%= @trip.destination %></h1>
+    <p><%= @trip.start_date.strftime("%e/%m/%y") %> ~ <%= @trip.end_date.strftime("%e/%m/%y") %></p>
+    <div class="trip-banner-card-icons">
+      <i class="fa-solid fa-user-plus"></i>
+      <i class="fa-solid fa-map-location-dot"></i>
+      <div class="trip-banner-card-users">
+        <i class="fa-solid fa-circle" style="color: #727CD7;"></i>
+        <i class="fa-solid fa-circle" style="color: #4C49B0;"></i>
+        <i class="fa-solid fa-circle" style="color: #3617A4;"></i>
+      </div>
+    </div>
+  </div>
+</div>

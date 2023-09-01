@@ -1,5 +1,4 @@
 class DocumentsController < ApplicationController
-
   def new
     @document = Document.new
     authorize @document

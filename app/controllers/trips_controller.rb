@@ -21,6 +21,8 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     authorize @trip
+    @activities = Activity.where(trip: @trip)
+    @activity = Activity.new
   end
 
   def index
@@ -31,6 +33,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:start_date, :end_date, :destination, :user_trips[:user])
+    params.require(:trip).permit(:start_date, :end_date, :destination)
   end
 end

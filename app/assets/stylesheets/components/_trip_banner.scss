@@ -1,0 +1,42 @@
+.trip-banner {
+  background-image: url("assets/Colombia.jpg");
+  background-size: cover;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  margin-bottom: 31px;
+}
+
+.trip-banner-card {
+  background-color: rgba(250, 243, 232, 0.8);
+  width: 80%;
+  padding: 15px 20px 0px 20px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: -15px
+}
+
+.trip-banner-card-icons i {
+  margin: 0px 5px;
+  align-items: baseline;
+}
+
+.trip-banner-card h1,
+.trip-banner-card p {
+  text-align: center;
+}
+
+.trip-banner-card-users {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.trip-banner-card-users i {
+  margin-right: -35px;
+}
+
+.trip-banner-card-icons {
+  display: flex;
+  justify-content: end;
+}

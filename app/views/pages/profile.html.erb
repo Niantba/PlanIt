@@ -1,25 +1,62 @@
 <div class= "container">
-
 <%# Profile banner %>
-  <h5>*Avatar Picture*</h5>
-  <% if @user.image.attached? %>
-      <%= cl_image_tag @user.image.key, height: 300, width: 300, crop: :fill %>
-  <% else %>
-    <%# Upload image %>
-    <h5>Upload image</h5>
-  <% end %>
-  <h1><%= @user.first_name %></h1>
+  <div class="profile-banner">
+    <div class="profile-banner-card">
+      <% if @user.image.attached? %>
+        <%= cl_image_tag @user.image.key%>
+      <% else %>
+        <h5><%= link_to "Upload image", edit_user_registration_path %></h5>
+      <% end %>
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    </div>
+  </div>
 
-<%# Friends scrolling bar %>
+  <%# Friends scroll menu %>
   <h2>Friends</h2>
   <%# For each friend %>
-
-<%# Upcoming trips scrolling bar %>
+  <div class="row">
+    <div class="scrollmenu">
+      <% @users.each do |user| %>
+        <div class="profile-friend-card">
+          <% if user.image.attached? %>
+            <%= cl_image_tag @user.image.key%>
+          <% else %>
+            <p><%= user.first_name %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<%# Upcoming trips scroll menu %>
   <h2>Upcoming trips</h2>
   <%# For each trip %>
+  <div class="row">
+    <div class="scrollmenu">
+      <% @trips.each do |trip| %>
+        <div class="profile-trip-card">
+          <img src="https://source.unsplash.com/random/?travel", class="object-fit-cover", alt="<%= trip.destination %>"/>
+          <p><%= trip.destination %></p>
+          <%# private boolean? %>
+          <%# <a href="<%= trip_path(trip) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-<%# Documents scrolling bar %>
+<%# Documents scroll menu %>
   <h2>Your documents</h2>
+  <%# For each document %>
+  <div class="row">
+    <div class="scrollmenu">
+      <% @documents.each do |document| %>
+        <div class="card">
+          <div class="col-2">
+            <p><%= document.name %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <%# Add document form %>
   <%= simple_form_for(@document) do |f| %>
     <%= f.input :name, label: "Name of file" %>
