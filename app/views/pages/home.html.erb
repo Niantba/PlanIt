@@ -4,23 +4,24 @@
 </div>
 
 <div class="container">
-  <h3 class="py-3"> Upcoming trips </h3>
+  <%# [[[[commented out for the demo, be careful when reintergrating]]]] %>
+  <%# <h3 class="py-3"> Upcoming trips </h3>
   <div class="row">
     <div class="scrollmenu">
       <% @trips.each do |trip| %>
-        <div class="homecard border">
+         <%# <div class="homecard border">
           <%# <div class="col-2"> %>
-            <img src="https://source.unsplash.com/random/?travel", class="object-fit-cover", alt="<%= trip.destination %>"/>
-            <p><%= trip.destination %></p>
-            <p><%= trip.start_date %></p>
-            <p><%= trip.end_date %></p>
-            <%# private boolean? %>
+             <%# <img src="https://source.unsplash.com/random/?travel", class="object-fit-cover", alt="<%= trip.destination %>
+             <%# <p><%= trip.destination</p> %>
+             <%# <p><%= trip.start_date</p> %>
+             <%# <p><%= trip.end_date</p> %>
+             <%# <%# private boolean? %>
             <%# <a href="<%= trip_path(trip) %>
           <%# </div> %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+        <%# </div> %>
+      <%# <% end %>
+    <%# </div> %>
+  <%# </div> %>
 
   <h3 class="py-3"> Featured guides </h3>
   <div class="row">
