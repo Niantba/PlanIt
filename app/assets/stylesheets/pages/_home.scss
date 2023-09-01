@@ -1,17 +1,32 @@
 // Specific CSS for your home-page
 
-.banner {
+.homebanner {
   height: 200px;
+  background-size: cover;
+  justify-content: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.btn {
+  background-color: #FF9D00;
+  border-radius: 20px;
 }
 
 .scrollmenu {
   overflow-x: scroll;
-  overflow-y: hidden;
   white-space: nowrap;
 
-  .card {
+  .homecard {
     display: inline-block;
     width: 100px;
-    height: 150px;
+    height: 200px;
+    & img {
+      width: 100%;
+    }
   }
+}
+
+.scrollmenu::-webkit-scrollbar {
+  display: none;
 }
