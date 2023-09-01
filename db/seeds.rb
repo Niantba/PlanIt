@@ -44,7 +44,7 @@ audrey.save!
   end
 end
 
-put "Seeds created"
+puts "Seeds created"
 
 # 5.times do
 #   expense = Expense.new(
