@@ -7,7 +7,7 @@
     <div class="row">
       <%= simple_form_for (@trip) do |f| %>
         <%= f.input :destination, placeholder: "Where to?" %>
-        <%= f.input :start_date, as: :string
+        <%= f.input :start_date, as: :string,
                     input_html: { data: { controller: "flatpickr" } } %>
         <%= f.input :end_date, as: :string,
                     input_html: { data: { controller: "flatpickr" } } %>
