@@ -3,17 +3,26 @@
     <div class="col-12">
       <h1>New Expense</h1>
     </div>
-      <%= simple_form_for [@trip, @expense] do |f| %>
-        <%#= f.association :activity, collection: Activity.where(trip: @trip) %>
-        <%= f.input :name %>
-        <%= f.input :amount %>
-        <%= f.input :category %>
-        <%= f.input :paid_by %>
-        <%= f.input :paid_for %>
+    <%= simple_form_for [@trip, @expense] do |f| %>
+
+      <%= f.input :name, class: "form-control" %>
 
 
-        <%= f.button :submit, "Create Expense" %>
-      <% end %>
+      <%= f.input :amount, class: "form-control" %>
+
+
+      <%= f.input :category, class: "form-control" %>
+
+      <%= f.label :paid_by, "Paid By" %>
+      <%= f.collection_select :paid_by, User.all, :first_name, :first_name, { prompt: "Select a user" }, { class: "form-control" } %>
+
+      <%= f.label :paid_for, "Paid For" %>
+      <%= f.collection_select :paid_for, User.all, :first_name, :first_name, { prompt: "Select a user" }, { class: "form-control" } %>
+
+    <div class="form-group" style="margin-top: 20px;">
+      <%= f.button :submit, "Create Expense", class: "btn btn-primary" %>
+    </div>
+    <% end %>
   </div>
 </div>
 

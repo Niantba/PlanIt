@@ -1,0 +1,12 @@
+<div class="trip-banner">
+  <div class="trip-banner-card">
+    <p>Total Expenses: <%= number_to_currency(@expenses.sum(:amount)) %></p>
+    <div class="trip-banner-card-icons">
+      <div class="trip-banner-card-users">
+        <i class="fa-solid fa-circle" style="color: #727CD7;"></i>
+        <i class="fa-solid fa-circle" style="color: #4C49B0;"></i>
+        <i class="fa-solid fa-circle" style="color: #3617A4;"></i>
+      </div>
+    </div>
+  </div>
+</div>
