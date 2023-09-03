@@ -51,7 +51,12 @@
       <% @documents.each do |document| %>
         <div class="card">
           <div class="col-2">
-            <p><%= document.name %></p>
+            <% if document.file.attached? %>
+              <%# <%= cl_file_tag @document.file.key%> %>
+              <p><%= document.name %></p>
+            <% else %>
+              <p><%= document.name %></p>
+            <% end %>
           </div>
         </div>
       <% end %>
