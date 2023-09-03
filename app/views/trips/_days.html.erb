@@ -7,22 +7,27 @@
         <i class="fa-solid fa-paperclip"></i>
       </div>
     </div>
-    <%# Activities %>
-    <% if @activities.any? %>
-      <% @activities.where(":date >= start_date AND :date <= end_date", date: date).each do |activity| %>
-        <div class="day-activity">
-          <div class="row">
-          <p><%= activity.name %></p>
-          <% render "add_comment" %>
-          <i class="fa-regular fa-comment-dots" data-action="click->add_comment#add" data-add-comment-target="comment"></i>
-          </div>
 
-        </div>
+    <%# Activities %>
+    <div data-controller="add-comment">
+
+      <% if @activities.any? %>
+        <% @activities.where(":date >= start_date AND :date <= end_date", date: date).each do |activity| %>
+          <div class="day-activity">
+            <div class="row">
+            <p><%= activity.name %></p>
+            <% render "add_comment" %>
+            <i class="fa-regular fa-comment-dots" data-action="click->add_comment#add" data-add-comment-target="comment"></i>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="day-empty-activity"></div>
       <% end %>
-    <% else %>
-      <div class="day-empty-activity"></div>
-    <% end %>
+    </div>
   </div>
 <% end %>
+
+
 
 <%# Comments %>

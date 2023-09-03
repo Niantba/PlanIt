@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="add-comment"
 export default class extends Controller {
-  static targets = ["form", "plus"]
+  static targets = ["form", "comment"]
   connect() {
   }
 

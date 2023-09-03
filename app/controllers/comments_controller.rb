@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def create
     # add instance of activities
     @activity = Activity.find(params[:activity_id])
-    @comment = Comment.new(comments_params)
+    @comment = Comment.new(comment_params)
     @comment.activity = @activity
     @comments = Comment.where(activity: @activity)
     authorize @comment
