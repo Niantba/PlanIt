@@ -1,40 +1,37 @@
 <%= render "shared/navbar" %>
 
 <div class="homebanner" style="background-image: url('https://images.unsplash.com/photo-1682685797140-c17807f8f217?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80');margin-top: 55px;">
-  <%= link_to "Plan a new trip", new_trip_path, class: "btn mb-3" %>
+  <%= link_to "Plan a new trip", new_trip_path, class: "homebtn mb-3" %>
 </div>
 
 <div class="container">
-  <%# [[[[commented out for the demo, be careful when reintergrating]]]] %>
-  <%# <h3 class="py-3"> Upcoming trips </h3>
-  <div class="row">
-    <div class="scrollmenu">
-      <% @trips.each do |trip| %>
-         <%# <div class="homecard border">
-          <%# <div class="col-2"> %>
-             <%# <img src="https://source.unsplash.com/random/?travel", class="object-fit-cover", alt="<%= trip.destination %>
-             <%# <p><%= trip.destination</p> %>
-             <%# <p><%= trip.start_date</p> %>
-             <%# <p><%= trip.end_date</p> %>
-             <%# <%# private boolean? %>
-            <%# <a href="<%= trip_path(trip) %>
-          <%# </div> %>
-        <%# </div> %>
-      <%# <% end %>
-    <%# </div> %>
-  <%# </div> %>
+  <% if current_user %>
+    <h3 class="py-3"> Upcoming trips </h3>
+    <div class="row">
+      <div class="scrollmenu">
+        <% @upcoming_trips.each do |trip| %>
+          <div class="homecard">
+            <div class="innertext">
+              <img src="https://source.unsplash.com/random/?<%= trip.destination %>", class="object-fit-xs-contain", alt="<%= trip.destination %>"/>
+              <p><%= trip.destination %></p>
+              <%# <a href="<%= trip_path(trip) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
   <h3 class="py-3"> Featured guides </h3>
   <div class="row">
     <div class="scrollmenu">
-      <% @trips.each do |trip| %>
-        <div class="homecard border">
-          <%# <div class="col-2"> %>
-            <img src="https://source.unsplash.com/random/?travel", class="object-fit-cover", alt="<%= trip.destination %>"/>
+      <% @featured_trips.each do |trip| %>
+        <div class="homecard">
+          <div class="innertext">
+            <img src="https://source.unsplash.com/random/?<%= trip.destination %>", class="object-fit-xs-contain", alt="<%= trip.destination %>"/>
             <p><%= trip.destination %></p>
-            <%# private boolean? %>
             <%# <a href="<%= trip_path(trip) %>
-          <%# </div> %>
+          </div>
         </div>
       <% end %>
     </div>
@@ -43,8 +40,8 @@
   <h3 class="py-3"> Popular destinations </h3>
   <div class="row">
     <div class="scrollmenu">
-      <% @trips.each do |trip| %>
-        <div class="homecard border">
+      <% @featured_trips.each do |trip| %>
+        <div class="homecard">
           <%# <div class="col-2"> %>
             <img src="https://source.unsplash.com/random/?travel", class="object-fit-cover", alt="<%= trip.destination %>"/>
             <p><%= trip.destination %></p>
