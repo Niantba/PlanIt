@@ -15,10 +15,14 @@
       <% if @activities.any? %>
         <%# <% @activities.where(":date >= start_date AND :date <= end_date", date: date).each do |activity| %>
         <% @activities.where(start_date: date).each do |activity| %>
-          <div class="day-activity">
-            <p><%= activity.name %></p>
+          <div data-controller="activity-page">
+            <div class="day-activity">
+              <p data-action="click->activity-page#show"> <%= activity.name %></p>
+              <%= render "trips/activity_page", activity: activity %>
+            </div>
           </div>
         <% end %>
+
       <% else %>
         <div class="day-empty-activity"></div>
       <% end %>
