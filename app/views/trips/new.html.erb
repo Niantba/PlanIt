@@ -1,28 +1,60 @@
 <div class="container">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 trip-new-text">
       <h1>Plan a new trip</h1>
-      <h5>Build an itinerary and map out your upcoming travel plans</h5>
+      <p>Build your trip itinerary and see your travel plans mapped out</p>
     </div>
-    <div class="row">
-      <%= simple_form_for (@trip) do |f| %>
-        <%= f.input :destination, placeholder: "Where to?" %>
-        <%= f.input :start_date, as: :string,
-                wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label text-secondary fw-bold" },
-                input_html: { data: { controller: "flatpickr" } }  %>
-        <%= f.input :end_date,  as: :string,
-                wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label text-secondary fw-bold" },
-                input_html: { data: { controller: "flatpickr" } }  %>
-        <%= f.association :users,
-                          as: :check_boxes,
-                          input_html: { multiple: true },
-                          include_hidden: false,
-                          collection: User.all,
-                          label_method: :first_name %>
-        <%= f.button :submit, "Plan It", class: 'btn-primary' %>
+
+    <div class="row trip-new-form">
+      <%= simple_form_for @trip, data: { controller: 'flatpickr' } do |f| %>
+        <%= f.input :destination, placeholder: "Destination", label: false %>
+        <%= f.input :start_date,
+                    as: :string,
+                    label: false,
+                    input_html: { data: { flatpickr_target: "startDate" } }  %>
+        <%= f.input :end_date,
+                    as: :string,
+                    label: false,
+                    input_html: { data: { flatpickr_target: "endDate" }, id: 'end_date'  }  %>
+
+        <!-- Button trigger modal -->
+        <div class="row">
+          <button type="button" id="btn-add-tripmates" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa-solid fa-user-plus"></i> Add a trimpmate
+          </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Invite your tripmates!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= f.association :users,
+                                as: :check_boxes,
+                                label: false,
+                                input_html: { multiple: true, class:"tripmates" },
+                                include_hidden: false,
+                                collection: User.all.reject {|user| user == current_user},
+                                label_method: :first_name %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-modal" data-bs-dismiss="modal">Add tripmates</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <%= f.button :submit, "Plan It", class: 'form-btn' %>
       <% end %>
+
+
+
+
     </div>
   </div>
 </div>
