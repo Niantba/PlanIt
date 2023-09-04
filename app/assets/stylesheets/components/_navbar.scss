@@ -1,6 +1,23 @@
+@font-face {
+  font-family: 'Brasika';
+  src: url('Brasika/brasika-display.eot');
+  src: url('Brasika/brasika-display.eot?#iefix') format('embedded-opentype'),
+       url('Brasika/brasika-display.woff2') format('woff2'),
+       url('Brasika/brasika-display.woff') format('woff'),
+       url('Brasika/brasika-display.ttf') format('truetype'),
+       url('Brasika/brasika-display.svg#brasika_displayregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+// top navbar
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: fixed;
+  top: 0px;
+  width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +26,35 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon span {
+  font-family: 'Brasika';
+  color: #FE9D02;
+}
+
+// bottom navbar
+.navbar-planit {
+  background-color: #130056;
+  color: white;
+  // padding: 10px; /* Espacio alrededor de los iconos */
+  font-size: 24px; /* Tamaño de los iconos */
+  overflow: hidden;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  }
+
+.navbar-planit-icons {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Estilo para los iconos */
+.navbar-planit i {
+  color: white; /* Cambiar el color de los iconos */
+
+  &:hover {
+  color: #ff9900; /* Cambiar el color de los iconos al pasar el mouse sobre ellos */
+  }
 }
