@@ -1,40 +1,4 @@
 
-.profile-banner {
-  background-size: cover;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.profile-banner-card {
-  background-color: rgba(250, 243, 232, 0.8);
-  width: 80%;
-  padding: 20px;
-  border-radius: 20px;
-  height: 100px;
-  position: relative;
-  & img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    align-items: center;
-    box-shadow: 0 8px 8px rgba(0,0,0,0.2);
-    border: white 2px solid;
-    position: relative;
-  }
-
-  p {
-    text-align: center;
-  }
-  h1 {
-    text-align: center;
-  }
-  h5 {
-    text-align: center;
-    size: 5px;
-  }
-}
 .profile-trip-card {
   display: inline-block;
   width: 100px;

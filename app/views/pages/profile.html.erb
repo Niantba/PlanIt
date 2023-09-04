@@ -1,18 +1,6 @@
 <div class= "container">
 <%# Profile banner %>
-  <div class="profile-banner" style="background-image: url('https://images.unsplash.com/photo-1682685797140-c17807f8f217?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80')">
-    <div class="profile-banner-card">
-      <% if @user.image.attached? %>
-        <%= cl_image_tag @user.image.key%>
-      <% else %>
-        <% my_initial = user.first_name.split ("") %>
-        <div class="circle">
-        <span class="initials">my_initials[0]</span>
-        </div>
-      <% end %>
-      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    </div>
-  </div>
+  <%= render "profile_banner" %>
 
   <%# Friends scroll menu %>
   <h2>Friends</h2>
