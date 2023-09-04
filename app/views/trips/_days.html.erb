@@ -18,7 +18,11 @@
       <%# <% @activities.where(":date >= start_date AND :date <= end_date", date: date).each do |activity| %>
       <% @activities.where("DATE(start_date) = ?", date).each do |activity| %>
         <div class="day-activity">
-          <p><%= activity.name %></p>
+          <div class="day-activity-info">
+            <p><%= activity.start_date.strftime("%I:%M %p") %></p>
+            <i class="fa-solid fa-caret-right"></i>
+            <p><%= activity.name %></p>
+          </div>
           <div class="day-activity-comment">
             <i class="fa-regular fa-comment-dots"></i>
           </div>
