@@ -17,9 +17,14 @@ class PagesController < ApplicationController
     @trips = Trip.all
   end
 
-  # private
+  def add_documents
+    current_user.update(user_params)
+    redirect_to profile_path
+  end
 
-  # def user_params
-  #   params.require(:user).permit(:image)
-  # end
+  private
+
+  def user_params
+    params.require(:user).permit(documents: [])
+  end
 end
