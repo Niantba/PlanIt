@@ -1,5 +1,5 @@
+
 .profile-banner {
-  background-image: url("assets/home-banner.jpg");
   background-size: cover;
   height: 180px;
   display: flex;
@@ -12,13 +12,16 @@
   width: 80%;
   padding: 20px;
   border-radius: 20px;
+  height: 100px;
+  position: relative;
   & img {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     align-items: center;
     box-shadow: 0 8px 8px rgba(0,0,0,0.2);
-    border: white 2px solid
+    border: white 2px solid;
+    position: relative;
   }
 
   p {
@@ -56,6 +59,38 @@
     border-radius: 50%;
     box-shadow: 0 5px 5px rgba(0,0,0,0.2);
     border: white 1px solid
+  }
+  p {
+    text-align: center;
+    size: 5px;
+  }
+}
+
+.circle {
+  background-color: #3617A4;
+  border-radius: 50%;
+  height: 100px;
+  text-align: center;
+  width: 100px;
+  border: white 1px solid;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+
+.initials {
+  font-size: 50px;
+  line-height: 1;
+  position: relative;
+  top: 25px;
+  color: white;
+}
+.profile-doc-card {
+  display: inline-block;
+  width: 100px;
+  height: 150px;
+  height: 200px;
+  border: 1px;
+  & img {
+    width: 100%;
   }
   p {
     text-align: center;
