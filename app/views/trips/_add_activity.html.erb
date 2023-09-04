@@ -1,16 +1,11 @@
-<div class="form-activity <%= @activity.errors.any? ? "d-block" : "d-none" %>"
-       data-add-activity-target="form"
-        >
-    <h1>Add a new activity</h1>
-    <%= simple_form_for [@trip, @activity] do |f| %>
-      <%= f.input :name, placeholder: "Name", label: false, required: true %>
-      <%= f.input :location, placeholder: "Location", label: false %>
-      <%= f.input :category, placeholder: "Category", label: false %>
-      <%= f.input :start_date, as: :string, label: false,
-                  input_html: { data: { controller: "flatpickr" }, value: date } %>
-      <%# <%= f.input :end_date, as: :string,
-                  input_html: { data: { controller: "flatpickr" } } %>
-      <%= f.input :price, as: :float, placeholder: "Price", label: false %>
-      <%= f.button :submit, "Add activity", class:"form-btn" %>
-      <% end %>
-  </div>
+<%= simple_form_for [@trip, @activity] do |f| %>
+  <%= f.input :name, placeholder: "Name", label: false, required: true %>
+  <%= f.input :location, placeholder: "Location", label: false %>
+  <%= f.input :start_date, as: :hidden, label: false,
+              input_html: { value: date } %>
+  <%= f.input :start_time, as: :string, label: false,
+              input_html: { data: { controller: 'flatpickr', flatpickr_type_value: "time" } }%>
+  <%# <%= f.input :end_date, as: :string,
+              input_html: { data: { controller: "flatpickr" } } %>
+  <%= f.button :submit, "Add activity", class:"form-btn" %>
+<% end %>

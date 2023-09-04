@@ -13,11 +13,13 @@
 
       <%= f.input :category, class: "form-control" %>
 
-      <%= f.label :paid_by, "Paid By" %>
-      <%= f.collection_select :paid_by, User.all, :first_name, :first_name, { prompt: "Select a user" }, { class: "form-control" } %>
+      <%= f.input :user_id, collection: User.all, label_method: :first_name %>
 
-      <%= f.label :paid_for, "Paid For" %>
-      <%= f.collection_select :paid_for, User.all, :first_name, :first_name, { prompt: "Select a user" }, { class: "form-control" } %>
+      <%= f.association :users,
+                        as: :check_boxes,
+                        collection: User.all,
+                        input_html: { multiple: true},
+                        label_method: :first_name %>
 
     <div class="form-group" style="margin-top: 20px;">
       <%= f.button :submit, "Create Expense", class: "btn btn-primary" %>

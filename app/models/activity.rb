@@ -3,5 +3,7 @@ class Activity < ApplicationRecord
   has_many :expenses
   has_many :comments
 
-  validates :category, presence: true
+  validates :name, :location, presence: true
+
+  attr_accessor :start_time
 end
