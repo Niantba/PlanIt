@@ -5,12 +5,37 @@
     <%= simple_form_for [@trip, @activity] do |f| %>
       <%= f.input :name, placeholder: "Name", label: false, required: true %>
       <%= f.input :location, placeholder: "Location", label: false %>
-      <%= f.input :category, placeholder: "Category", label: false %>
-      <%= f.input :start_date, as: :string, label: false,
-                  input_html: { data: { controller: "flatpickr" }, value: date } %>
+      <%= f.input :start_date, as: :hidden, label: false,
+                  input_html: { value: date } %>
+      <%= f.input :start_time, as: :string, label: false,
+                  input_html: { data: { controller: 'flatpickr', flatpickr_type_value: "time" } }%>
       <%# <%= f.input :end_date, as: :string,
                   input_html: { data: { controller: "flatpickr" } } %>
-      <%= f.input :price, as: :float, placeholder: "Price", label: false %>
       <%= f.button :submit, "Add activity", class:"form-btn" %>
       <% end %>
   </div>
+
+
+   <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModale">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

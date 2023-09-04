@@ -6,7 +6,7 @@
     </div>
 
     <div class="row trip-new-form">
-      <%= simple_form_for @trip, data: { controller: 'flatpickr' } do |f| %>
+      <%= simple_form_for @trip, data: { controller: 'flatpickr', flatpickr_type_value: "full" } do |f| %>
         <%= f.input :destination, placeholder: "Destination", label: false %>
         <%= f.input :start_date,
                     as: :string,

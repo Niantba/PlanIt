@@ -8,15 +8,17 @@
               data-action="click->add-activity#add"
               data-add-activity-target="plus"></i>
           <i class="fa-solid fa-paperclip"></i>
-          <i class="fa-regular fa-comment-dots"></i>
         </div>
       </div>
       <%# Activities %>
       <% if @activities.any? %>
         <%# <% @activities.where(":date >= start_date AND :date <= end_date", date: date).each do |activity| %>
-        <% @activities.where(start_date: date).each do |activity| %>
+        <% @activities.where("DATE(start_date) = ?", date).each do |activity| %>
           <div class="day-activity">
             <p><%= activity.name %></p>
+            <div class="day-activity-comment">
+              <i class="fa-regular fa-comment-dots"></i>
+              </div>
           </div>
         <% end %>
       <% else %>

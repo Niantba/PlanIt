@@ -3,12 +3,40 @@
     <h1><%= @trip.destination %></h1>
     <p><%= @trip.start_date.strftime("%e/%m/%y") %> ~ <%= @trip.end_date.strftime("%e/%m/%y") %></p>
     <div class="trip-banner-card-icons">
-      <i class="fa-solid fa-user-plus"></i>
+      <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa-solid fa-user-plus"></i>
+      </button>
       <i class="fa-solid fa-map-location-dot"></i>
       <div class="trip-banner-card-users">
         <i class="fa-solid fa-circle" style="color: #727CD7;"></i>
         <i class="fa-solid fa-circle" style="color: #4C49B0;"></i>
         <i class="fa-solid fa-circle" style="color: #3617A4;"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Invite your tripmates!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <%# <%= simple_form_for [@trip,@user_trip] do |f| %>
+        <%# <%= f.input :users,
+                        as: :check_boxes,
+                        label: false,
+                        input_html: { multiple: true, class:"tripmates" },
+                        include_hidden: false,
+                        collection: User.all.reject {|user| user == current_user},
+                        label_method: :first_name %>
+        <%# <% end %> %> %> %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-modal" data-bs-dismiss="modal">Add tripmates</button>
       </div>
     </div>
   </div>
