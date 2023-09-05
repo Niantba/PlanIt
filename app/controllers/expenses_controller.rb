@@ -21,10 +21,6 @@ class ExpensesController < ApplicationController
     end
   end
 
-  module Snippet
-    CATEGORIES = ["Transport", "Shipping", "Entertainment", "Food", "Accommodation", "Others"]
-  end
-
   def create
     @trip = Trip.find(params[:trip_id])
     authorize @trip, policy_class: ExpensePolicy
