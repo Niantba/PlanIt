@@ -18,18 +18,21 @@
     <% if @activities.any? %>
       <%# <% @activities.where(":date >= start_date AND :date <= end_date", date: date).each do |activity| %>
       <% @activities.where("DATE(start_date) = ?", date).each do |activity| %>
-        <div data-controller="activity-page">        
+        <div data-controller="activity-page">
           <div class="day-activity">
             <div class="day-activity-info">
               <p><%= activity.start_date.strftime("%I:%M %p") %></p>
-              <i class="fa-solid fa-caret-right"></i>
-              <p data-action="click->activity-page#show"> <%= activity.name %></p>
-              <%= render "trips/activity_page", activity: activity %>
+                <i class="fa-solid fa-caret-right"
+                    data-action="click->activity-page#show"
+                    data-activity-page-target="arrowright"></i>
+                <div class="d-flex">
+                  <i class="fa-solid fa-caret-right fa-rotate-90 d-none" data-activity-page-target="arrowdown" data-action="click->activity-page#show"></i>
+                  <p><%= activity.name%></p>
+                </div>
+                <i class="commentlogo fa-regular fa-comment-dots d-none" data-activity-page-target="comment"></i>
             </div>
-            <div class="day-activity-comment">
-              <i class="fa-regular fa-comment-dots"></i>
-            </div>
-          </div>          
+            <%= render "trips/activity_page", activity: activity %>
+          </div>
         </div>
       <% end %>
     <% else %>

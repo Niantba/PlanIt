@@ -19,8 +19,8 @@ class PagesController < ApplicationController
     @document = Document.new
     redirect_to profile_path if @document.save
     @documents = Document.all
-    # Trips
-    @trips = Trip.all
+    # Upcoming Trips
+    @upcoming_trips = current_user.trips
   end
 
   def add_documents
