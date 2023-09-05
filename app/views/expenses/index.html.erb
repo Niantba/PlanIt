@@ -1,18 +1,17 @@
 <%# Meta %>
 <% content_for :meta_title, "Trip for #{@trip.destination}" %>
 <%# <% content_for :meta_image, cl_image_path(@trip.photo.key) if @trip.photo.attached? %>
-
 <div data-controller="add-expense">
   <%# Banner %>
   <%= render "layouts/expense_banner" %>
 </div>
 <div class="container">
-   <div>
-     <%# Table of Expenses %>
-     <%= render "expense" %>
-      <div>
-        <%= link_to "Create new expense", new_trip_expense_path, class: "btn btn-primary" %>
-      </div>
+  <div>
+    <%# Table of Expenses %>
+    <%= render "expense" %>
+    <div>
+      <%= link_to "Create new expense", new_trip_expense_path, class: "btn btn-primary" %>
+    </div>
   </div>
 </div>
 <%= render "navbar" %>
