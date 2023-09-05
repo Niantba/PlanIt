@@ -7,11 +7,20 @@
         <i class="fa-solid fa-user-plus"></i>
       </button>
       <i class="fa-solid fa-map-location-dot"></i>
-      <div class="trip-banner-card-users">
-        <i class="fa-solid fa-circle" style="color: #727CD7;"></i>
-        <i class="fa-solid fa-circle" style="color: #4C49B0;"></i>
-        <i class="fa-solid fa-circle" style="color: #3617A4;"></i>
-      </div>
+      <% if @users.any? %>
+        <div class="trip-banner-card-users">
+          <% @users.each do |user| %>
+            <% if user.image.attached? %>
+              <%= cl_image_tag user.image.key%>
+            <% else %>
+              <% initial = user.first_name.split ("") %>
+              <div class="trip-banner-card-users-circle">
+                <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -25,19 +34,19 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <%# <%= simple_form_for [@trip,@user_trip] do |f| %>
-        <%# <%= f.input :users,
-                        as: :check_boxes,
-                        label: false,
-                        input_html: { multiple: true, class:"tripmates" },
-                        include_hidden: false,
-                        collection: User.all.reject {|user| user == current_user},
-                        label_method: :first_name %>
-        <%# <% end %> %> %> %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-modal" data-bs-dismiss="modal">Add tripmates</button>
-      </div>
+        <%= simple_form_for [@trip, @user_trip] do |f| %>
+          <%= f.association :user,
+                          as: :check_boxes,
+                          label: false,
+                          input_html: { multiple: true, class:"tripmates" },
+                          include_hidden: false,
+                          collection: User.where.not(id: @trip.users.pluck(:user_id)),
+                          label_method: :first_name %>
+        </div>
+        <div class="modal-footer">
+          <%= f.button :submit, "Add tripmates", class: 'form-btn' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

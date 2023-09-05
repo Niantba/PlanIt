@@ -21,6 +21,8 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @user_trip = UserTrip.new
+    @users = @trip.users
     authorize @trip
     @activities = Activity.where(trip: @trip)
     @activity = Activity.new
