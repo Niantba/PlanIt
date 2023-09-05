@@ -1,20 +1,17 @@
 
+ <% @comments = Comment.where(activity:activity) %>
   <% if @comments.any? %>
-    <div class="each-comment">
-      <% @comments.each do |comment| %>
-        <p><%= comment.content %></p>
-      <% end %>
-    </div>
+    <% @comments.each do |comment| %>
+      <div class="each-comment">
+        <p><%= comment.user.first_name %> : <%= comment.content %></p>
+      </div>
+    <% end %>
   <% else %>
-    <p>No comments</p>
+    <p class="text-center">No comments</p>
   <% end %>
-  <%= form_for [@trip, activity, @comment] do |f| %>
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Add Comment" %>
-  </div>
-<% end %>
+  <%= simple_form_for [@trip, activity, @comment] do |f| %>
+    <div class="field p-3">
+      <%= f.input :content, placeholder: "Add comment", label: false %>
+      <%= f.button :submit, "Add comment", class:"form-btn" %>
+    </div>
+  <% end %>

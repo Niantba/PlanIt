@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment.activity = @activity
     @comments = Comment.where(activity: @activity)
     @comment.user = current_user
+    @users = User.all
     authorize @comment
     if @comment.save
       redirect_to trip_path(@trip)

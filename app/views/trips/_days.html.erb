@@ -28,11 +28,11 @@
             </div>
             <!-- Button trigger modal for comments-->
             <div class="day-activity-comment">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#commentmodal">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#modal-activity-<%= activity.id %>">
               <i class="fa-regular fa-comment-dots"></i>
             </button>
             <!-- Modal to add comment -->
-            <div class="modal fade" id="commentmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-activity-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
