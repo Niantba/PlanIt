@@ -24,16 +24,17 @@
 
 <%# Upcoming trips scroll menu %>
   <h2>Upcoming trips</h2>
-  <%# For each trip %>
   <div class="row">
     <div class="scrollmenu">
-      <% @trips.each do |trip| %>
-        <div class="profile-trip-card">
-          <img src="https://source.unsplash.com/random/?travel", class="object-fit-cover", alt="<%= trip.destination %>"/>
-          <p><%= trip.destination %></p>
-          <%# private boolean? %>
-          <%# <a href="<%= trip_path(trip) %>
-        </div>
+      <% @upcoming_trips.each do |trip| %>
+        <a href="<%= trip_path(trip) %>">
+          <div class="homecard">
+            <div class="innertext">
+              <img src="https://source.unsplash.com/random/?<%= trip.destination %>", class="object-fit-cover", alt="<%= trip.destination %>"/>
+              <p><%= trip.destination %></p>
+            </div>
+          </div>
+        </a>
       <% end %>
     </div>
   </div>
