@@ -5,7 +5,6 @@
       <th>Amount</th>
       <th>Category</th>
       <th>Paid By</th>
-      <!-- Otros encabezados de columna si es necesario -->
     </tr>
   </thead>
   <tbody>
@@ -14,8 +13,29 @@
         <td><%= expense.name %></td>
         <td><%= number_to_currency(expense.amount) %></td>
         <td><%= expense.category %></td>
-        <td><%= expense.paid_by %></td>
-        <!-- Otros datos de la fila si es necesario -->
+        <td><%= expense.user.first_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @user_balances.keys.each do |user_id| %>
+      <tr>
+        <td>
+          <%= user_name(user_id) %>
+        </td>
+        <td class="<%= @user_balances[user_id] >= 0 ? 'positive' : 'negative' %>">
+          <%= number_to_currency(@user_balances[user_id]) %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -1,15 +1,6 @@
 <div class= "container">
 <%# Profile banner %>
-  <div class="profile-banner">
-    <div class="profile-banner-card">
-      <% if @user.image.attached? %>
-        <%= cl_image_tag @user.image.key%>
-      <% else %>
-        <h5><%= link_to "Upload image", edit_user_registration_path %></h5>
-      <% end %>
-      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    </div>
-  </div>
+  <%= render "profile_banner" %>
 
   <%# Friends scroll menu %>
   <h2>Friends</h2>
@@ -21,24 +12,29 @@
           <% if user.image.attached? %>
             <%= cl_image_tag @user.image.key%>
           <% else %>
-            <p><%= user.first_name %></p>
+            <% initial = user.first_name.split ("") %>
+            <div class="circle">
+              <span class="initials"><%= initial[0] %></span>
+            </div>
           <% end %>
         </div>
       <% end %>
     </div>
   </div>
+
 <%# Upcoming trips scroll menu %>
   <h2>Upcoming trips</h2>
-  <%# For each trip %>
   <div class="row">
     <div class="scrollmenu">
-      <% @trips.each do |trip| %>
-        <div class="profile-trip-card">
-          <img src="https://source.unsplash.com/random/?travel", class="object-fit-cover", alt="<%= trip.destination %>"/>
-          <p><%= trip.destination %></p>
-          <%# private boolean? %>
-          <%# <a href="<%= trip_path(trip) %>
-        </div>
+      <% @upcoming_trips.each do |trip| %>
+        <a href="<%= trip_path(trip) %>">
+          <div class="homecard">
+            <div class="innertext">
+              <img src="https://source.unsplash.com/random/?<%= trip.destination %>", class="object-fit-cover", alt="<%= trip.destination %>"/>
+              <p><%= trip.destination %></p>
+            </div>
+          </div>
+        </a>
       <% end %>
     </div>
   </div>
@@ -48,19 +44,22 @@
   <%# For each document %>
   <div class="row">
     <div class="scrollmenu">
-      <% @documents.each do |document| %>
-        <div class="card">
-          <div class="col-2">
-            <p><%= document.name %></p>
-          </div>
+      <% @user.documents.each do |document| %>
+        <div class="profile-doc-card">
+            <% if document.image? %>
+              <%= cl_image_tag document.key %>
+            <% else%>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/640px-PDF_file_icon.svg.png" alt="PDF_File">
+              <%#<p><%= document.filename.to_s</p> %>
+            <% end %>
+
         </div>
       <% end %>
     </div>
   </div>
   <%# Add document form %>
-  <%= simple_form_for(@document) do |f| %>
-    <%= f.input :name, label: "Name of file" %>
-    <%= f.input :file, as: :file, label: "Attach your file" %>
+  <%= simple_form_for(@user, url: profile_path, method: :patch) do |f| %>
+    <%= f.input :documents, as: :file, input_html: {multiple: true}, label: "Add document" %>
     <%= f.button :submit, "Add document", class: 'btn-primary' %>
   <% end %>
 
