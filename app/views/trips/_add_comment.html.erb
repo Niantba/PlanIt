@@ -2,7 +2,7 @@
   <% if @comments.any? %>
     <div class="each-comment">
       <% @comments.each do |comment| %>
-        <p><%= comment.comment %></p>
+        <p><%= comment.content %></p>
       <% end %>
     </div>
   <% else %>
@@ -10,8 +10,8 @@
   <% end %>
   <%= form_for [@trip, activity, @comment] do |f| %>
   <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_area :comment %>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
   </div>
 
   <div class="actions">
