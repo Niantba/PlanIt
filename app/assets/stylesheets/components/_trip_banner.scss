@@ -68,9 +68,12 @@
   align-items: center;
 }
 
-.trip-banner-card-users-circle img {
-  width: 25px;
+.trip-banner-card-users img {
   height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: white 1px solid;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
 }
 
 .trip-banner-card-users-initials {
