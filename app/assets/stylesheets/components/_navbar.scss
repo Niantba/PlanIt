@@ -41,8 +41,7 @@
 .navbar-planit {
   background-color: #130056;
   color: white;
-  // padding: 10px; /* Espacio alrededor de los iconos */
-  font-size: 24px; /* Tamaño de los iconos */
+  font-size: 24px;
   overflow: hidden;
   position: fixed;
   bottom: 0px;
@@ -54,11 +53,11 @@
   justify-content: space-around;
 }
 
-/* Estilo para los iconos */
+
 .navbar-planit i {
-  color: white; /* Cambiar el color de los iconos */
+  color: white;
 
   &:hover {
-  color: #ff9900; /* Cambiar el color de los iconos al pasar el mouse sobre ellos */
+  color: #ff9900;
   }
 }

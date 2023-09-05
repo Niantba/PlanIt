@@ -12,20 +12,24 @@
         </button>
         <i class="fa-solid fa-paperclip"></i>
       </div>
+
     </div>
     <%# Activities %>
     <% if @activities.any? %>
       <%# <% @activities.where(":date >= start_date AND :date <= end_date", date: date).each do |activity| %>
       <% @activities.where("DATE(start_date) = ?", date).each do |activity| %>
-        <div class="day-activity">
-          <div class="day-activity-info">
-            <p><%= activity.start_date.strftime("%I:%M %p") %></p>
-            <i class="fa-solid fa-caret-right"></i>
-            <p><%= activity.name %></p>
-          </div>
-          <div class="day-activity-comment">
-            <i class="fa-regular fa-comment-dots"></i>
-          </div>
+        <div data-controller="activity-page">        
+          <div class="day-activity">
+            <div class="day-activity-info">
+              <p><%= activity.start_date.strftime("%I:%M %p") %></p>
+              <i class="fa-solid fa-caret-right"></i>
+              <p data-action="click->activity-page#show"> <%= activity.name %></p>
+              <%= render "trips/activity_page", activity: activity %>
+            </div>
+            <div class="day-activity-comment">
+              <i class="fa-regular fa-comment-dots"></i>
+            </div>
+          </div>          
         </div>
       <% end %>
     <% else %>
