@@ -21,14 +21,25 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @user_trip = UserTrip.new
+    @users = @trip.users
     authorize @trip
     @activities = Activity.where(trip: @trip)
     @activity = Activity.new
+    @comment = Comment.new
   end
 
   def index
     @trips = Trip.all
     @trips = policy_scope(Trip)
+  end
+
+  def destroy
+    @trip = Trip.find(params[:id])
+    authorize @trip
+    @trip.destroy
+
+    redirect_to root_path, status: :see_other
   end
 
   private

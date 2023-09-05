@@ -18,8 +18,7 @@
 }
 
 .trip-banner-card-icons i {
-  margin: 0px 5px;
-  align-items: baseline;
+  padding: 0px 5px;
 }
 
 .trip-banner-card h1,
@@ -29,18 +28,22 @@
 
 .trip-banner-card-users {
   margin-right: 20px;
-  margin-left: 20px;
+  padding: 0px 5px;
+  display: flex;
 }
-.trip-banner-card-users i {
-  margin-right: -35px;
+.trip-banner-card-users img,
+.trip-banner-card-users-circle {
+  margin-right: -40px;
 }
 
 .trip-banner-card-icons {
   display: flex;
   justify-content: end;
+  align-items: center;
 }
 
-.trip-banner button {
+.trip-banner button,
+.day-activity-comment button {
   display: flex;
   align-items: flex-start;
   border: none;
@@ -50,4 +53,28 @@
 .day-date-icons button {
   border: none;
   background-color: #ffffff00;
+}
+
+.trip-banner-card-users-circle {
+  background-color: #3617A4;
+  border-radius: 50%;
+  height: 25px;
+  text-align: center;
+  width: 25px;
+  border: white 1px solid;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trip-banner-card-users-circle img {
+  width: 25px;
+  height: 25px;
+}
+
+.trip-banner-card-users-initials {
+  font-size: 10px;
+  top: 25px;
+  color: white;
 }

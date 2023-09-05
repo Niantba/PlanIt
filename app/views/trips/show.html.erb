@@ -11,3 +11,7 @@
 </div>
 
 <%= render "trips/navbartrips" %>
+
+<div class="container">
+  <%= link_to "Delete this trip", delete_path(@trip), data: { turbo_method: :delete }, class: "btn btn-outline-danger" %>
+</div>

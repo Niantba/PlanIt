@@ -22,8 +22,12 @@ class TripPolicy < ApplicationPolicy
   def show?
     true
   end
+
   def index?
-    # Define aquí tus reglas de autorización para el método index
-    true # Por ejemplo, permitir a todos ver la lista de viajes
+    true 
+  end
+
+  def destroy?
+    true
   end
 end
