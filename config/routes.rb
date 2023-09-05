@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :documents, only: %i[new create delete]
 
   resources :activities, only: %i[delete]
+
 end

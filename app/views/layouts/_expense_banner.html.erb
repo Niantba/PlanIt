@@ -1,7 +1,10 @@
+
 <div class="trip-banner">
+  <img src="https://source.unsplash.com/random/?<%= @trip.destination %>", alt="<%= @trip.destination %>" width= "375px"/>
   <div class="trip-banner-card">
     <p>Total Expenses: <%= number_to_currency(@expenses.sum(:amount)) %></p>
     <div class="trip-banner-card-icons">
+
       <div class="trip-banner-card-users">
         <i class="fa-solid fa-circle" style="color: #727CD7;"></i>
         <i class="fa-solid fa-circle" style="color: #4C49B0;"></i>

@@ -37,12 +37,17 @@ class ExpensesController < ApplicationController
   private
 
   def calculate_user_balances(expenses)
-    user_balances = Hash.new(0) # Inicializa un hash para almacenar los saldos
+    user_balances = Hash.new(0)
 
     expenses.each do |expense|
-      user_balances[expense.user_id] -= expense.amount # Resta el gasto pagado
-      expense.user_ids.each do |user|
-        user_balances[user] += (expense.amount / expense.user_ids.size) # Suma la parte del gasto para cada usuario
+      payer_id = expense.user_id
+      total_users = expense.user_ids.size
+      share = expense.amount / total_users
+
+      user_balances[payer_id] += expense.amount - share
+
+      expense.user_ids.each do |user_id|
+        user_balances[user_id] -= share unless user_id == payer_id
       end
     end
 

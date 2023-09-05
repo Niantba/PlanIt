@@ -24,19 +24,18 @@
     <tr>
       <th>User</th>
       <th>Balance</th>
+
     </tr>
   </thead>
   <tbody>
 
-    <% @user_balances.keys.each do |user_id| %>
-      <tr>
-        <td>
-          <%= user_name(user_id) %>
-        </td>
-        <td class="<%= @user_balances[user_id] >= 0 ? 'positive' : 'negative' %>">
-          <%= number_to_currency(@user_balances[user_id]) %>
-        </td>
-      </tr>
-    <% end %>
+  <% @user_balances.each do |user_id, balance| %>
+  <tr>
+    <td><%= User.find(user_id).first_name %></td>
+    <td class="<%= balance >= 0 ? 'positive' : 'negative' %>">
+    <%= number_to_currency(balance) %>
+  </td>
+  </tr>
+<% end %>
   </tbody>
 </table>
