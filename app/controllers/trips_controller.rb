@@ -34,6 +34,14 @@ class TripsController < ApplicationController
     @trips = policy_scope(Trip)
   end
 
+  def destroy
+    @trip = Trip.find(params[:id])
+    authorize @trip
+    @trip.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   private
 
   def trip_params

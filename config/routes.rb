@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :expenses, only: %i[index create new]
   end
 
+  delete '/trips/:id', to: 'trips#destroy', as: "delete"
   resources :documents, only: %i[new create delete]
 
   resources :activities, only: %i[delete]
