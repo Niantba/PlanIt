@@ -1,5 +1,4 @@
 .trip-banner {
-  background-image: image-url("Colombia.jpg");
   background-size: cover;
   height: 180px;
   display: flex;
@@ -43,7 +42,8 @@
   align-items: center;
 }
 
-.trip-banner button {
+.trip-banner button,
+.day-activity-comment button {
   display: flex;
   align-items: flex-start;
   border: none;
