@@ -8,8 +8,7 @@
   margin: 10px 5px;
   box-shadow: 0px 4px 4px 0px #00000040;
   background-color: #FFF;
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
 
   p {
     margin: 0px;
@@ -37,9 +36,17 @@
 
 .day-activity-info {
   display: flex;
-  align-items: center;
+  align-items: start;
+  // justify-content: space-between;
 
   i {
     margin: 0 15px;
   }
+}
+
+.commentlogo {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  margin: 0 !important;
 }
