@@ -24,6 +24,7 @@ class TripsController < ApplicationController
     authorize @trip
     @activities = Activity.where(trip: @trip)
     @activity = Activity.new
+    @comment = Comment.new
   end
 
   def index

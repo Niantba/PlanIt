@@ -4,6 +4,7 @@
     <h1><%= @trip.destination %></h1>
     <p><%= @trip.start_date.strftime("%e/%m/%y") %> ~ <%= @trip.end_date.strftime("%e/%m/%y") %></p>
     <div class="trip-banner-card-icons">
+    <!-- Trigger modal to add tripmates -->
       <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="fa-solid fa-user-plus"></i>
       </button>
@@ -17,7 +18,7 @@
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal to add tripmates -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

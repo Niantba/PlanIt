@@ -3,7 +3,7 @@
     <div class="day-date">
       <h3><%= date.strftime("%a, %e/%m") %></h3>
       <div class="day-date-icons">
-        <!-- Button trigger modal -->
+        <!-- Button trigger modal for activity-->
         <button type="button" data-bs-toggle="modal" data-bs-target="#modal<%= date %>">
           <i class="fa-solid fa-circle-plus">
               <%# data-action="click->add-activity#add"
@@ -31,7 +31,31 @@
                 </div>
                 <i class="commentlogo fa-regular fa-comment-dots d-none" data-activity-page-target="comment"></i>
             </div>
+
+            <!-- Button trigger modal for comments-->
+            <div class="day-activity-comment">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#modal-activity-<%= activity.id %>">
+              <i class="fa-regular fa-comment-dots"></i>
+            </button>
+            <!-- Modal to add comment -->
+            <div class="modal fade" id="modal-activity-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Comments</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <%# Add activity %>
+                    <%= render "trips/add_comment", activity:activity %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
             <%= render "trips/activity_page", activity: activity %>
+
           </div>
         </div>
       <% end %>
@@ -40,7 +64,7 @@
     <% end %>
   </div>
 
-<!-- Modal -->
+<!-- Modal to add activity -->
 <div class="modal fade" id="modal<%= date %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
