@@ -2,7 +2,7 @@
   <div class="navbar-planit-icons">
   <%= link_to content_tag(:i, "", class: "fas fa-home m-2"), root_path %>
   <%= link_to content_tag(:i, "", class: "fa-regular fa-calendar-days m-2"), trip_path(@trip) %>
-  <%= link_to content_tag(:i, "", class: "fa-regular fa-money-bill-1 m-2"), new_trip_expense_path(@trip) %>
+  <%= link_to content_tag(:i, "", class: "fa-regular fa-money-bill-1 m-2"), trip_expenses_path(@trip) %>
   <%= link_to content_tag(:i, "", class: "fa-solid fa-user m-2"), profile_path %>
   </div>
 </nav>
