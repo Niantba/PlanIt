@@ -11,13 +11,21 @@
       <%= f.input :amount, class: "form-control" %>
 
 
-      <%= f.input :category, class: "form-control" %>
+    <div class="select-div">
+      <%= f.input :category, collection: ["Transport", "shipping", "entertainment", "food", "acomodat", "others"], as: :radio_buttons %>
+    </div>
 
-      <%= f.input :user_id, collection: User.all, label_method: :first_name %>
+
+
+      <%= f.input :user_id,
+                  collection: @trip.users,
+                  label: 'Paid By',
+                  label_method: :first_name %>
 
       <%= f.association :users,
                         as: :check_boxes,
-                        collection: User.all,
+                        collection: @trip.users,
+                        label: 'Paid For',
                         input_html: { multiple: true},
                         label_method: :first_name %>
 
