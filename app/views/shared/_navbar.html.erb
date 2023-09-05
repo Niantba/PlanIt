@@ -5,6 +5,10 @@
       <span>PlanIt</span>
     <% end %>
 
+    <% unless user_signed_in? %>
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    <% end %>
+
     <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> %>
