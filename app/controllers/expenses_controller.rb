@@ -37,18 +37,17 @@ class ExpensesController < ApplicationController
   private
 
   def calculate_user_balances(expenses)
-    user_balances = Hash.new { |hash, key| hash[key] = { owes: 0, owed_by: 0 } }
+    user_balances = Hash.new(0)
 
     expenses.each do |expense|
       payer_id = expense.user_id
       total_users = expense.user_ids.size
+      share = expense.amount / total_users
+
+      user_balances[payer_id] += expense.amount - share
 
       expense.user_ids.each do |user_id|
-        next if user_id == payer_id
-
-        share = expense.amount / total_users
-        user_balances[payer_id][:owes] += share
-        user_balances[user_id][:owed_by] += share
+        user_balances[user_id] -= share unless user_id == payer_id
       end
     end
 

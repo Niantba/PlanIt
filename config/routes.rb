@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   resources :activities, only: %i[delete] do
     resources :comments, only: %i[create]
   end
+
+  resources :expenses do
+    get :who_owes_to_whom, on: :collection
+  end
 end
