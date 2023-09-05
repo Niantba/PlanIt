@@ -14,10 +14,15 @@
 // top navbar
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgba(250, 243, 232, 0.8);
   position: fixed;
-  top: 0px;
+  top: 0;
   width: 100%;
+  z-index: 1;
+
+  a {
+    color: rgb(250, 243, 232)
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
