@@ -10,17 +10,15 @@ Rails.application.routes.draw do
 
   resources :trips, only: %i[new create update show index] do
     resources :user_trips, only: %i[new create]
-    resources :activities, only: %i[create]
+    resources :activities, only: %i[create] do
+      resources :comments, only: %i[create]
+    end
     resources :expenses, only: %i[index create new]
   end
 
+  delete '/trips/:id', to: 'trips#destroy', as: "delete"
   resources :documents, only: %i[new create delete]
 
-  resources :activities, only: %i[delete] do
-    resources :comments, only: %i[create]
-  end
+  resources :activities, only: %i[delete]
 
-  resources :expenses do
-    get :who_owes_to_whom, on: :collection
-  end
 end
