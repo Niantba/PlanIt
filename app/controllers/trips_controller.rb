@@ -27,6 +27,12 @@ class TripsController < ApplicationController
     @activities = Activity.where(trip: @trip)
     @activity = Activity.new
     @comment = Comment.new
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude
+      }
+    end
   end
 
   def index

@@ -1,0 +1,12 @@
+.map-container {
+  position: relative;
+}
+
+.map .fa-map-location-dot{
+  position: absolute;
+  bottom: 372px;
+  right: 52px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
