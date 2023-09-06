@@ -22,40 +22,36 @@
           <div class="day-activity">
             <div class="day-activity-info">
               <p><%= activity.start_date.strftime("%I:%M %p") %></p>
-                <i class="fa-solid fa-caret-right"
-                    data-action="click->activity-page#show"
-                    data-activity-page-target="arrowright"></i>
-                <div class="d-flex">
-                  <i class="fa-solid fa-caret-right fa-rotate-90 d-none" data-activity-page-target="arrowdown" data-action="click->activity-page#show"></i>
-                  <p><%= activity.name%></p>
-                </div>
-                <%# <div class="d-flex"> %>
-                  <i class="commentlogo fa-regular fa-comment-dots d-none" data-activity-page-target="comment"></i>
-                  <%# <i class="fa-solid fa-xmark d-none" data-activity-page-target="delete"></i>
-                </div> %>
+              <i class="fa-solid fa-caret-right"
+                  data-action="click->activity-page#show"
+                  data-activity-page-target="arrowright"></i>
+              <i class="fa-solid fa-caret-right fa-rotate-90 d-none" data-activity-page-target="arrowdown" data-action="click->activity-page#show"></i>
+              <p><%= activity.name%></p>
             </div>
-
-            <!-- Button trigger modal for comments-->
-            <div class="day-activity-comment">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#modal-activity-<%= activity.id %>">
-              <i class="fa-regular fa-comment-dots"></i>
-            </button>
-            <!-- Modal to add comment -->
-            <div class="modal fade" id="modal-activity-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Comments</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <%# Add activity %>
-                    <%= render "trips/add_comment", activity:activity %>
+              <!-- Button trigger modal for comments-->
+              <div class="day-activity-comment commentlogo">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-activity-<%= activity.id %>">
+                  <i class="fa-regular fa-comment-dots d-none" data-activity-page-target="comment"></i>
+                </button>
+                <!-- Modal to add comment -->
+                <div class="modal fade" id="modal-activity-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Comments</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <%# Add activity %>
+                        <%= render "trips/add_comment", activity:activity %>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            </div>
+                  <%# <i class="commentlogo fa-regular fa-comment-dots d-none" data-activity-page-target="comment"></i> %>
+                  <%# <i class="fa-solid fa-xmark d-none" data-activity-page-target="delete"></i> %>
+
 
             <%= render "trips/activity_page", activity: activity %>
 
