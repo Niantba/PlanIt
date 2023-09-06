@@ -1,6 +1,6 @@
 
 <div class="trip-banner">
-  <img src="https://source.unsplash.com/random/?<%= @trip.destination %>", alt="<%= @trip.destination %>" width= "375px"/>
+  <img src="https://source.unsplash.com/random/?<%= @trip.destination %>" alt="<%= @trip.destination %>" width="375px"/>
   <div class="trip-banner-card">
     <h1><%= @trip.destination %></h1>
     <p><%= @trip.start_date.strftime("%e/%m/%y") %> ~ <%= @trip.end_date.strftime("%e/%m/%y") %></p>
@@ -9,12 +9,20 @@
       <i class="fa-solid fa-comments-dollar"></i>
     </button>
     <div class="trip-banner-card-icons">
-
-      <div class="trip-banner-card-users">
-        <i class="fa-solid fa-circle" style="color: #727CD7;"></i>
-        <i class="fa-solid fa-circle" style="color: #4C49B0;"></i>
-        <i class="fa-solid fa-circle" style="color: #3617A4;"></i>
-      </div>
+      <% if @users.any? %>
+        <div class="trip-banner-card-users">
+          <% @users.each do |user| %>
+            <% if user.image.attached? %>
+              <%= cl_image_tag user.image.key %>
+            <% else %>
+              <% initial = user.first_name.split("") %>
+              <div class="trip-banner-card-users-circle">
+                <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
