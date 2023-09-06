@@ -6,15 +6,18 @@
   align-items: flex-end;
   position: relative;
   margin-bottom: 30px;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 .profile-banner-card {
   background-color: rgba(250, 243, 232, 0.8);
   width: 80%;
   padding: 15px 20px 0px 20px;
-  border-radius: 20px;
+  border-radius: 20px 20px 0 0;
   position: absolute;
-  bottom: -15px;
+  top: 60px;
+  bottom: 0;
   & img {
     width: 80px;
     height: 80px;
@@ -23,13 +26,12 @@
     box-shadow: 0 8px 8px rgba(0,0,0,0.2);
     border: white 2px solid;
     display: block;
-    margin: auto;
-    position: relative;
-    top: -40px;
+    margin: -55px auto 0 auto;
   }
 
-  h3 {
+  h1 {
     text-align: center;
-    vertical-align: middle;
+    font-size: 26px;
+    margin-top: 20px;
   }
 }
