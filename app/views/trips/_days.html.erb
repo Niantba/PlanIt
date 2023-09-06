@@ -17,7 +17,7 @@
     <%# Activities %>
     <% if @activities.any? %>
       <%# <% @activities.where(":date >= start_date AND :date <= end_date", date: date).each do |activity| %>
-      <% @activities.where("DATE(start_date) = ?", date).each do |activity| %>
+      <% @activities.where("DATE(start_date) = ?", date).sort_by(&:start_date).each do |activity| %>
         <div data-controller="activity-page">
           <div class="day-activity">
             <div class="day-activity-info">
