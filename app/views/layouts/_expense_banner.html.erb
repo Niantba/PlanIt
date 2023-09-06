@@ -5,6 +5,9 @@
     <h1><%= @trip.destination %></h1>
     <p><%= @trip.start_date.strftime("%e/%m/%y") %> ~ <%= @trip.end_date.strftime("%e/%m/%y") %></p>
     <p>Total Expenses: <%= number_to_currency(@expenses.sum(:amount)) %></p>
+    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-activity">
+      <i class="fa-solid fa-comments-dollar"></i>
+    </button>
     <div class="trip-banner-card-icons">
 
       <div class="trip-banner-card-users">
