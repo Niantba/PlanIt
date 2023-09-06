@@ -2,7 +2,10 @@
 
   <p>Location: <%= activity.location %></p>
 
-  <div class="border">
-    <p><%= "comment box should be here" %></p>
-  </div>
+  <% @comments = Comment.where(activity:activity) %>
+    <% if @comments.any? %>
+      <div class="each-comment">
+        <p><%= Comment.last.user.first_name %> : <%= Comment.last.content %></p>
+      </div>
+    <% end %>
 </div>
