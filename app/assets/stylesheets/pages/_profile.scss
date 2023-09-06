@@ -1,7 +1,4 @@
-// .row {
-//   margin-bottom: 50px;
-//   height: 150px;
-// }
+
 .profile-trip-card {
   display: inline-block;
   width: 100px;
@@ -17,12 +14,11 @@
 }
 .profile-friend-card {
   display: inline-block;
-  width: 100px;
-  height: 150px;
-  margin: 5px;
+  width: 85px;
+  height: 100px;
   & img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     box-shadow: 0 5px 5px rgba(0,0,0,0.2);
     border: white 1px solid
@@ -31,6 +27,23 @@
     text-align: center;
     size: 5px;
   }
+}
+.circle {
+  background-color: #3617A4;
+  border-radius: 50%;
+  height: 80px;
+  text-align: center;
+  width: 80px;
+  border: white 1px solid;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+
+.initials {
+  font-size: 40px;
+  line-height: 1;
+  position: relative;
+  top: 20px;
+  color: white;
 }
 
 .profile-doc-card {
@@ -51,20 +64,6 @@
   }
 }
 
-.circle {
-  background-color: #3617A4;
-  border-radius: 50%;
-  height: 100px;
-  text-align: center;
-  width: 100px;
-  border: white 1px solid;
-  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
-}
-
-.initials {
-  font-size: 50px;
-  line-height: 1;
-  position: relative;
-  top: 25px;
-  color: white;
+.scrollmenu-profile {
+  display: flex;
 }
