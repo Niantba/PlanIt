@@ -1,5 +1,5 @@
 <div class='container'>
-  <table class="table">
+  <table class="expenses-table">
     <thead>
       <tr>
         <th>Name</th>
@@ -8,9 +8,9 @@
         <th>Paid By</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody >
       <% @expenses.each do |expense| %>
-        <tr>
+        <tr class="expense-activity">
           <td><%= expense.name %></td>
           <td><%= number_to_currency(expense.amount) %></td>
           <td><%= expense.category %></td>
@@ -23,12 +23,11 @@
 </div>
 
 <% @expenses.each do |expense| %>
-  <!-- Modal correspondiente al expense actual -->
   <div class="modal fade" id="modal-activity" tabindex="-1" aria-labelledby="modal-activity-label" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal-activity-label">Detalles del Expense</h5>
+          <h5 class="modal-title" id="modal-activity-label">Balance Sheet Details</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -50,33 +49,9 @@
               <% end %>
             </tbody>
           </table>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Owes</th>
-                <th>To</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @user_balances.each do |debtor_id, balance| %>
-                <% if balance < 0 %>
-                  <% @user_balances.each do |creditor_id, creditor_balance| %>
-                    <% if creditor_balance > 0 && debtor_id != creditor_id %>
-                      <tr>
-                        <td><%= User.find(debtor_id).first_name %></td>
-                        <td><%= User.find(creditor_id).first_name %></td>
-                        <td><%= number_to_currency([balance.abs, creditor_balance].min) %></td>
-                      </tr>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              <% end %>
-            </tbody>
-          </table>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="form-btn" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
