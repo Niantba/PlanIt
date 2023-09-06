@@ -19,6 +19,5 @@ Rails.application.routes.draw do
   delete '/trips/:id', to: 'trips#destroy', as: "delete"
   resources :documents, only: %i[new create delete]
 
-  resources :activities, only: %i[delete]
-
+  resources :activities, only: %i[update destroy]
 end

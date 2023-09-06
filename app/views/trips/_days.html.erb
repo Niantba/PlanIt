@@ -12,8 +12,8 @@
         </button>
         <i class="fa-solid fa-paperclip"></i>
       </div>
-
     </div>
+
     <%# Activities %>
     <% if @activities.any? %>
       <%# <% @activities.where(":date >= start_date AND :date <= end_date", date: date).each do |activity| %>
@@ -27,12 +27,40 @@
                   data-activity-page-target="arrowright"></i>
               <i class="fa-solid fa-caret-right fa-rotate-90 d-none" data-activity-page-target="arrowdown" data-action="click->activity-page#show"></i>
               <p><%= activity.name%></p>
+
+              <!-- Delete Button -->
+              <%= link_to ('<i class="fa-solid fa-trash"></i>').html_safe, activity_path(activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this activity?"}%>
+
+              <!-- Button trigger modal to edit activity-->
+              <div class="edit-activity editlogo">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-edit-<%= activity.id %>">
+                  <i class="fa-solid fa-pen" data-activity-page-target="edit_activity"></i>
+                </button>
+              </div>
+
+              <!-- Modal to edit activity -->
+                <div class="modal fade" id="modal-edit-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Activity</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <%# Edit activity %>
+                        <%= render "trips/update_activity", date: date, activity: activity %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
+
               <!-- Button trigger modal for comments-->
               <div class="day-activity-comment commentlogo">
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modal-activity-<%= activity.id %>">
                   <i class="fa-regular fa-comment-dots d-none" data-activity-page-target="comment"></i>
                 </button>
+
                 <!-- Modal to add comment -->
                 <div class="modal fade" id="modal-activity-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
@@ -42,19 +70,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <%# Add activity %>
                         <%= render "trips/add_comment", activity:activity %>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-                  <%# <i class="commentlogo fa-regular fa-comment-dots d-none" data-activity-page-target="comment"></i> %>
-                  <%# <i class="fa-solid fa-xmark d-none" data-activity-page-target="delete"></i> %>
-
-
             <%= render "trips/activity_page", activity: activity %>
-
           </div>
         </div>
       <% end %>
