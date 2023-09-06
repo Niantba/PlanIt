@@ -1,7 +1,7 @@
 <% (@trip.start_date..@trip.end_date).to_a.each do |date| %>
   <div class="day">
     <div class="day-date">
-      <h3><%= date.strftime("%a, %e/%m") %></h3>
+      <h5><%= date.strftime("%a, %e/%m") %></h5>
       <div class="day-date-icons">
         <!-- Button trigger modal for activity-->
         <button type="button" data-bs-toggle="modal" data-bs-target="#modal<%= date %>">
@@ -28,7 +28,7 @@
               <div>
                 <p><%= activity.name%></p>
                 <div class="hide-unless-expanded">
-                  <small class="grey"><%= activity.location %></small>
+                  <small><%= activity.location %></small>
                 </div>
               </div>
             </div>
