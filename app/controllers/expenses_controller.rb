@@ -4,6 +4,8 @@ class ExpensesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @expenses = Expense.where(trip: @trip)
     @user_balances = calculate_user_balances(@expenses)
+    @current_user_balance = @user_balances[current_user.id]
+    @users = @trip.users
   end
 
   def user_name(user_id)

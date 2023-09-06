@@ -10,7 +10,7 @@
     <p class="text-center">No comments</p>
   <% end %>
   <%= simple_form_for [@trip, activity, @comment] do |f| %>
-    <div class="field p-3">
+    <div class="field">
       <%= f.input :content, placeholder: "Add comment", label: false %>
       <%= f.button :submit, "Add comment", class:"form-btn" %>
     </div>

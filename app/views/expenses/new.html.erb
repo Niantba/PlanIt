@@ -12,7 +12,7 @@
 
 
     <div class="select-div">
-      <%= f.input :category, collection: ["Transport", "shipping", "entertainment", "food", "acomodat", "others"], as: :radio_buttons %>
+      <%= f.input :category, collection: ["Transportation", "Shopping", "Entertainment", "Food", "Accomodation", "Others"], as: :radio_buttons %>
     </div>
 
 
@@ -30,7 +30,7 @@
                         label_method: :first_name %>
 
     <div class="form-group" style="margin-top: 20px;">
-      <%= f.button :submit, "Create Expense", class: "btn btn-primary" %>
+      <%= f.button :submit, "Create Expense", class: "form-btn" %>
     </div>
     <% end %>
   </div>

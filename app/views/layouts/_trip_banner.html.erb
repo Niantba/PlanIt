@@ -2,7 +2,7 @@
      data-display-map-markers-value="<%= @markers.to_json %>"
      data-display-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   <div data-display-map-target="banner" class="trip-banner">
-    <img src="https://source.unsplash.com/random/?<%= @trip.destination %>", alt="<%= @trip.destination %>" width= "375px"/>
+    <img src="https://source.unsplash.com/random/?<%= @trip.destination %>", alt="<%= @trip.destination %>" width= "100%" height="100%"/>
     <div class="trip-banner-card">
       <h1><%= @trip.destination %></h1>
       <p><%= @trip.start_date.strftime("%e/%m/%y") %> ~ <%= @trip.end_date.strftime("%e/%m/%y") %></p>

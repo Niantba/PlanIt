@@ -36,7 +36,7 @@
 
 .day-activity-info {
   display: flex;
-  align-items: start;
+  align-items: center;
   // justify-content: space-between;
 
   i {
@@ -44,9 +44,22 @@
   }
 }
 
-.commentlogo {
-  display: flex;
-  justify-content: end;
-  width: 100%;
-  margin: 0 !important;
+// .editlogo {
+//   display: flex;
+//   justify-content: end;
+//   width: 100%;
+//   margin: 0 !important;
+// }
+
+.hide-unless-expanded {
+  display: none;
+}
+
+.expanded .hide-unless-expanded {
+  display: block;
+}
+
+.expanded .arrow {
+  transform: rotate(90deg);
+  transition: transform 300ms ease-in;
 }
