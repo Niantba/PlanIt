@@ -6,4 +6,7 @@ class Activity < ApplicationRecord
   validates :name, :location, presence: true
 
   attr_accessor :start_time
+
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end

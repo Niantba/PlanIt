@@ -57,3 +57,12 @@
 a {
   text-decoration: none;
 }
+
+.navbar a {
+  display: flex;
+  align-items: flex-end;
+
+  img {
+    margin-right: 5px;
+  }
+}

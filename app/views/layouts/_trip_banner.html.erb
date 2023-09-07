@@ -1,58 +1,67 @@
-<div class="trip-banner">
-  <img src="https://source.unsplash.com/random/?<%= @trip.destination %>", alt="<%= @trip.destination %>" width= "100%" height="100%"/>
-  <div class="trip-banner-card">
-    <h1><%= @trip.destination %></h1>
-    <p><%= @trip.start_date.strftime("%e/%m/%y") %> ~ <%= @trip.end_date.strftime("%e/%m/%y") %></p>
-    <div class="trip-banner-card-icons">
-    <!-- Trigger modal to add tripmates -->
-      <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <i class="fa-solid fa-user-plus"></i>
-      </button>
-      <i class="fa-solid fa-map-location-dot"></i>
-      <% if @users.any? %>
-        <div class="trip-banner-card-users">
-          <% @users.each do |user| %>
-            <% if user.image.attached? %>
-              <%= cl_image_tag user.image.key%>
-            <% else %>
-              <% initial = user.first_name.split ("") %>
-              <div class="trip-banner-card-users-circle">
-                <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
+<div data-controller="display-map"
+     data-display-map-markers-value="<%= @markers.to_json %>"
+     data-display-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div data-display-map-target="banner" class="trip-banner">
+    <img src="https://source.unsplash.com/random/?<%= @trip.destination %>", alt="<%= @trip.destination %>" width= "100%" height="100%"/>
+    <div class="trip-banner-card">
+      <h1><%= @trip.destination %></h1>
+      <p><%= @trip.start_date.strftime("%e/%m/%y") %> ~ <%= @trip.end_date.strftime("%e/%m/%y") %></p>
+      <div class="trip-banner-card-icons">
+      <!-- Trigger modal to add tripmates -->
+        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fa-solid fa-user-plus"></i>
+        </button>
+        <i data-action="click->display-map#fire" class="fa-solid fa-map-location-dot"></i>
+        <% if @users.any? %>
+          <div class="trip-banner-card-users">
+            <% @users.each do |user| %>
+              <% if user.image.attached? %>
+                <%= cl_image_tag user.image.key%>
+              <% else %>
+                <% initial = user.first_name.split ("") %>
+                <div class="trip-banner-card-users-circle">
+                  <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal to add tripmates -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Invite your tripmates!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <% if User.where.not(id: @trip.users.pluck(:user_id)).count == 0 %>
+            <p>No more tripmates to add.</p>
+          <% else %>
+            <%= simple_form_for [@trip, @user_trip] do |f| %>
+              <%= f.association :user,
+                              as: :check_boxes,
+                              label: false,
+                              input_html: { multiple: true, class:"tripmates" },
+                              include_hidden: false,
+                              collection: User.where.not(id: @trip.users.pluck(:user_id)),
+                              label_method: :first_name %>
+              <div class="modal-footer">
+                <%= f.button :submit, "Add tripmates", class: 'form-btn' %>
               </div>
             <% end %>
           <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Modal to add tripmates -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Invite your tripmates!</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <% if User.where.not(id: @trip.users.pluck(:user_id)).count == 0 %>
-          <p>No more tripmates to add.</p>
-        <% else %>
-          <%= simple_form_for [@trip, @user_trip] do |f| %>
-            <%= f.association :user,
-                            as: :check_boxes,
-                            label: false,
-                            input_html: { multiple: true, class:"tripmates" },
-                            include_hidden: false,
-                            collection: User.where.not(id: @trip.users.pluck(:user_id)),
-                            label_method: :first_name %>
-            <div class="modal-footer">
-              <%= f.button :submit, "Add tripmates", class: 'form-btn' %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+  <div data-display-map-target="map" class="map d-none">
+    <div data-display-map-target="mapContainer" style="width: 100%; height: 300px;" class="map-container"></div>
+    <i data-action="click->display-map#hide" class="fa-solid fa-map-location-dot"></i>
   </div>
 </div>

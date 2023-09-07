@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
     @activity.start_date = DateTime.parse([params[:activity][:start_date], params[:activity][:start_time]].join(' '))
     @activities = Activity.where(trip: @trip)
     authorize @activity
+    @users = @trip.users
     if @activity.save
       redirect_to trip_path(@trip)
     else
