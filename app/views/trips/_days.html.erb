@@ -35,40 +35,36 @@
               </div>
 
               <!-- Modal to edit activity -->
-                <div class="modal fade" id="modal-edit-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Activity</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <%# Edit activity %>
-                        <%= render "trips/update_activity", date: date, activity: activity %>
-                      </div>
+              <div class="modal fade" id="modal-edit-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Activity</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <%# Edit activity %>
+                      <%= render "trips/update_activity", date: date, activity: activity %>
                     </div>
                   </div>
                 </div>
-            </div>
+              </div>
               <!-- Button trigger modal for comments-->
               <div class="day-activity-comment hide-unless-expanded">
                 <div>
                   <% @comments = Comment.where(activity:activity) %>
                   <% if @comments.any? %>
                     <div class="each-comment-showpage">
-                      <% if @users.any? %>
-                        <div class="trip-banner-card-users">
-                          <% @users.each do |user| %>
-                            <% if user.image.attached? %>
-                              <%= cl_image_tag user.image.key%>
-                            <% else %>
-                              <% initial = user.first_name.split ("") %>
-                              <div class="trip-banner-card-users-circle">
-                                <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
-                              </div>
-                            <% end %>
-                          <% end %>
-                        </div>
+                      <div class="trip-banner-card-users">
+                        <% if @comments.last.user.image.attached? %>
+                          <%= cl_image_tag @comments.last.user.image.key%>
+                        <% else %>
+                          <% initial = @comments.last.user.first_name.split ("") %>
+                          <div class="trip-banner-card-users-circle">
+                            <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
+                          </div>
+                        <% end %>
+                      </div>
                       <% end %>
                       <p> <%= @comments.last.content %></p>
                     </div>
@@ -111,7 +107,7 @@
           </div>
         </div>
       <% end %>
-    <% else %>
+
       <div class="day-empty-activity"></div>
     <% end %>
   </div>
@@ -131,4 +127,3 @@
     </div>
   </div>
 </div>
-<% end %>
