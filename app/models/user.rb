@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   def avatar
     if image.attached?
-      return "<img src='#{image.url}'> #{first_name}".html_safe
+      return "<img class='avatar-image' src='#{image.url}'> #{first_name}".html_safe
     else
       return "
         <div class='trip-banner-card-users-circle'>

@@ -49,7 +49,7 @@
                               input_html: { multiple: true, class:"tripmates" },
                               include_hidden: false,
                               collection: User.where.not(id: @trip.users.pluck(:user_id)),
-                              label_method: :first_name %>
+                              label_method: :avatar %>
               <div class="modal-footer">
                 <%= f.button :submit, "Add tripmates", class: 'btn-modal' %>
               </div>
