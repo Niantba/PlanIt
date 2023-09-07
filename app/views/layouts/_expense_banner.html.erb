@@ -1,23 +1,25 @@
 
-<div class="trip-banner">
+<div class="expense-banner">
   <img src="https://source.unsplash.com/random/?<%= @trip.destination %>" alt="<%= @trip.destination %>" width="375px"/>
-  <div class="trip-banner-card">
+  <div class="expense-banner-card">
     <h1><%= @trip.destination %></h1>
     <p><%= @trip.start_date.strftime("%e/%m/%y") %> ~ <%= @trip.end_date.strftime("%e/%m/%y") %></p>
     <p>Total Expenses: <%= number_to_currency(@expenses.sum(:amount)) %></p>
-    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-activity">
-      <i class="fa-solid fa-comments-dollar"></i>
-    </button>
-    <div class="trip-banner-card-icons">
+
+    <div class="expense-banner-card-icons">
+      <button class="but-on" type="button" data-bs-toggle="modal" data-bs-target="#modal-activity">
+        <i class="fa-solid fa-comments-dollar"></i>
+        <span>Debt Summary</span>
+      </button>
       <% if @users.any? %>
-        <div class="trip-banner-card-users">
+        <div class="expense-banner-card-users">
           <% @users.each do |user| %>
             <% if user.image.attached? %>
               <%= cl_image_tag user.image.key %>
             <% else %>
               <% initial = user.first_name.split("") %>
-              <div class="trip-banner-card-users-circle">
-                <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
+              <div class="expense-banner-card-users-circle">
+                <span class="expense-banner-card-users-initials"><%= initial[0] %></span>
               </div>
             <% end %>
           <% end %>

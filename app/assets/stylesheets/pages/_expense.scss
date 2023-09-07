@@ -1,32 +1,121 @@
 
-.expenses-table {
-  border-spacing: 0 10px;
-  border-collapse: separate;
+.expense-card {
   font-size: small;
-}
-
-.expenses-table td {
-  padding: 10px 5px;
-  background-color: #FFF;
-}
-
-.expense-activity {
+  width: 85%;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px auto;
   box-shadow: 0px 4px 4px 0px #00000040;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-  // display: flex;
+
+  i {
+    margin-top: 12px;
+  }
 }
 
-.expense-activity td:first-child {
-  border-radius: 5px 0 0 5px;
-  padding-left: 20px;
+.expense-card-user{
+  margin-top: 8px;
 }
 
-.expense-activity td:last-child {
-  border-radius: 0 5px 5px 0;
-  padding-right: 20px;
+.expense-card-info-name{
+  margin-left: 10px;
+  max-width: 70px;
 }
 
-// table {
-//   box-shadow: 0px 4px 4px 0px #00000040;
-//   background-color: #FFF;
-// }
+.expense-card-info-date {
+  margin-left: 10px;
+}
+
+.currency-expense{
+  margin-top: 10px;
+}
+
+.expense-title {
+  font-size: small;
+  width: 80%;
+  padding: 5px 10px 5px 10px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+
+.expense-details{
+  display: flex;
+
+  gap: 5px;
+}
+
+
+.user-initial {
+  font-size: 15px;
+  line-height: 1;
+  position: relative;
+  top: 4px;
+  color: white;
+}
+
+
+.custom-input select {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.custom-input  {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+
+.balance-expenses {
+  /* Estilo general del balance */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.header{
+display: flex;
+justify-content: space-between;
+
+}
+
+.user-balance {
+  /* Estilo de cada entrada de usuario */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.user-name {
+  /* Estilo del nombre del usuario */
+  font-weight: bold;
+}
+
+.balance {
+  /* Estilo del balance */
+  font-size: 18px;
+  padding: 5px;
+}
+
+
+.negative {
+  color: red;
+}
+
+.positive {
+  color: green;
+}

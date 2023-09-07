@@ -4,7 +4,7 @@ import rangePlugin from "flatpickrRangePlugin";
 
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
-  static targets = [ "startDate", "endDate" ]
+  static targets = [ "startDate", "endDate", "date" ]
   static values = {
     type: String
   }
@@ -24,6 +24,10 @@ export default class extends Controller {
         noCalendar: true,
         enableTime: true,
         dateFormat: 'h:i K'
+      })
+    } else if (this.typeValue === "expense") {
+      flatpickr(this.dateTarget, {
+        altInput: true
       })
     }
   }
