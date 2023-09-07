@@ -59,16 +59,13 @@
   </div>
   <%# Add document form %>
   <%= simple_form_for(@user, url: profile_path, method: :patch) do |f| %>
-    <%= f.input :documents, as: :file, input_html: {multiple: true}, label: "Add document" %>
-    <%= f.button :submit, "Add document", class: 'btn-primary' %>
+    <%= f.input :documents, as: :file, input_html: {multiple: true}, label: " " %>
+    <%= f.button :submit, "Add document", class: 'form-btn' %>
   <% end %>
-
-<%# Previous trips scrolling bar %>
-  <h2 class="p-2">Previous trips</h2>
-  <%# For each trip %>
 
   <%# Log out %>
   <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, style: "color:#800059",  class: "p-2"%>
+
 </div>
 
 <%= render "navbarhome" %>
