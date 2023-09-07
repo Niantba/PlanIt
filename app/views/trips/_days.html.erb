@@ -27,7 +27,7 @@
                   data-action="click->activity-page#show"></i>
               <i class="fa-solid fa-caret-right fa-rotate-90 d-none" data-action="click->activity-page#show"></i>
               <div>
-                <p><%= activity.name%></p>
+                <p data-action="click->activity-page#show"><%= activity.name%></p>
                 <div class="hide-unless-expanded">
                   <div class="location"><p><%= activity.location %></p></div>
 
