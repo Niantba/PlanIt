@@ -42,6 +42,10 @@
   i {
     margin: 0 15px;
   }
+
+  p {
+    font-size: 15px;
+  }
 }
 
 // .editlogo {
@@ -62,4 +66,7 @@
 .expanded .arrow {
   transform: rotate(90deg);
   transition: transform 300ms ease-in;
+}
+.location {
+  font-size: 12px;
 }
