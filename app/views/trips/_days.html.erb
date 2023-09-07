@@ -58,16 +58,16 @@
                     <div class="each-comment-showpage">
                       <% if @users.any? %>
                         <div class="trip-banner-card-users">
-                          <% @users.each do |user| %>
-                            <% if user.image.attached? %>
-                              <%= cl_image_tag user.image.key%>
+                          <%# @users.each do |user| %>
+                            <% if @comments.last.user.image.attached? %>
+                              <%= cl_image_tag @comments.last.user.image.key%>
                             <% else %>
-                              <% initial = user.first_name.split ("") %>
+                              <% initial = @comments.last.user.first_name.split ("") %>
                               <div class="trip-banner-card-users-circle">
                                 <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
                               </div>
                             <% end %>
-                          <% end %>
+                          <%# end %>
                         </div>
                       <% end %>
                       <p> <%= @comments.last.content %></p>
