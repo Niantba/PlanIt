@@ -3,7 +3,7 @@
   <%= render "profile_banner" %>
 
   <%# Friends scroll menu %>
-  <h2>Friends</h2>
+  <h2 class="p-2">Friends</h2>
   <%# For each friend %>
   <div class="row">
     <div class="scrollmenu scrollmenu-profile">
@@ -23,7 +23,7 @@
   </div>
 
 <%# Upcoming trips scroll menu %>
-  <h2>Upcoming trips</h2>
+  <h2 class="p-2">Upcoming trips</h2>
   <div class="row">
     <div class="scrollmenu">
       <% @upcoming_trips.each do |trip| %>
@@ -40,7 +40,7 @@
   </div>
 
 <%# Documents scroll menu %>
-  <h2>Your documents</h2>
+  <h2 class="p-2">Your documents</h2>
   <%# For each document %>
   <div class="row">
     <div class="scrollmenu">
@@ -64,9 +64,7 @@
   <% end %>
 
   <%# Log out %>
-  <div class="container">
-    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-outline-danger" %>
-  </div>
+  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, style: "color:#800059",  class: "p-2"%>
 
 </div>
 
