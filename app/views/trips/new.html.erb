@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-new-trip">
   <div class="row">
     <div class="col-12 trip-new-text">
       <h1>Plan a new trip</h1>
@@ -41,7 +41,7 @@
                                 input_html: { multiple: true, class:"tripmates" },
                                 include_hidden: false,
                                 collection: User.all.reject {|user| user == current_user},
-                                label_method: :first_name %>
+                                label_method: :avatar %>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn-modal" data-bs-dismiss="modal">Add tripmates</button>
@@ -51,7 +51,7 @@
         </div>
 
 
-        <%= f.button :submit, "Plan It", class: 'form-btn' %>
+        <%= f.button :submit, "Plan It", class: 'form-btn', id: 'btn-plan-it' %>
       <% end %>
 
 
@@ -61,4 +61,6 @@
   </div>
 </div>
 
-<%= render "pages/navbarhome" %>
+<div class="trip-new-page">
+  <%= render "pages/navbarhome" %>
+</div>

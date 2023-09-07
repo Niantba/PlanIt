@@ -2,6 +2,10 @@
   margin: 25px 10px 25px 10px;
 }
 
+.day:last-of-type {
+  margin-bottom: 50px;
+}
+
 .day-activity {
   border-radius: 5px;
   padding: 10px 20px 10px 20px;
@@ -69,4 +73,13 @@
 }
 .location {
   font-size: 12px;
+}
+
+.delete {
+  color: #800059;
+  margin-left: 10px;
+
+  &:hover {
+    color: #ed050a;
+  }
 }

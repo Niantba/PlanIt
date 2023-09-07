@@ -23,7 +23,7 @@ export default class extends Controller {
       flatpickr(this.element, {
         noCalendar: true,
         enableTime: true,
-        dateFormat: 'h:i K'
+        dateFormat: 'h:i K',
       })
     } else if (this.typeValue === "expense") {
       flatpickr(this.dateTarget, {

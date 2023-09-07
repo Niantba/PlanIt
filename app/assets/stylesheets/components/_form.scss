@@ -80,6 +80,7 @@
 
   ul {
     padding-left: 20px;
+    padding-right: 20px;
   }
 
   li {
@@ -114,6 +115,13 @@
 
 .mapboxgl-ctrl-geocoder--suggestion-address {
  font-size: 13px;
+}
+
+.mapboxgl-ctrl-geocoder--suggestion-title,
+.mapboxgl-ctrl-geocoder--suggestion-address {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .mapboxgl-ctrl-geocoder--powered-by a {

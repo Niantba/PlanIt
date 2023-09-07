@@ -38,6 +38,11 @@
   color: #FE9D02;
 }
 
+.navbar> .container-fluid {
+  display: flex;
+  align-items: flex-start;
+}
+
 // bottom navbar
 .navbar-planit {
   background-color: #130056;

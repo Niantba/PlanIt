@@ -68,6 +68,14 @@
   display: flex;
 }
 
-.container {
-  margin-top: 30px;
+.log-out {
+  color: #800059;
+
+  &:hover {
+    color: #ed050a;
+  }
+}
+
+.profile-page .fa-user {
+  color: #FF9D00;
 }

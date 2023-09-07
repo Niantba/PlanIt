@@ -21,7 +21,7 @@
         <div data-controller="activity-page">
           <div class="day-activity" data-activity-page-target="activity">
             <div class="day-activity-info">
-              <p><%= activity.start_date.strftime("%I:%M %p") %></p>
+              <p data-action="click->activity-page#show"><%= activity.start_date.strftime("%I:%M %p") %></p>
 
               <i class="fa-solid fa-caret-right arrow"
                   data-action="click->activity-page#show"></i>
@@ -81,7 +81,7 @@
                   </button>
 
                   <!-- Delete Button -->
-                  <%= link_to ('<i class="fa-solid fa-trash"></i>').html_safe, activity_path(activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this activity?"}%>
+                  <%= link_to ('<i class="fa-solid fa-trash" style="color: #000;"></i>').html_safe, activity_path(activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this activity?"}%>
 
                   <!-- Button trigger modal to edit activity-->
                   <div class="edit-activity editlogo">
