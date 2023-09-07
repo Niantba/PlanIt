@@ -24,10 +24,14 @@ class TripPolicy < ApplicationPolicy
   end
 
   def index?
-    true 
+    true
   end
 
   def destroy?
+    true
+  end
+
+  def update?
     true
   end
 end
