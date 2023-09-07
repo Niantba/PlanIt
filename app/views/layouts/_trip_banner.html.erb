@@ -51,7 +51,7 @@
                               collection: User.where.not(id: @trip.users.pluck(:user_id)),
                               label_method: :first_name %>
               <div class="modal-footer">
-                <%= f.button :submit, "Add tripmates", class: 'form-btn' %>
+                <%= f.button :submit, "Add tripmates", class: 'btn-modal' %>
               </div>
             <% end %>
           <% end %>

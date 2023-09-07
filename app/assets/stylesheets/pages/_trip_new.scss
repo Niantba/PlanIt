@@ -10,15 +10,17 @@
 
 .btn-modal {
   display: block;
-  background-color: #800059;
+  background-color: #FEF3E0;
   text-align: center;
-  color: #FEF3E0;
+  color: #800059;
   font-weight: bold;
   border-radius: 20px;
   margin: auto;
   padding: 5px 15px;
   font-size: 15px;
-  border: none;
+  border: 3px solid #800059;
+  width: 180px;
+  text-decoration: none;
 }
 
 .modal-content {
@@ -56,4 +58,8 @@
 .container-new-trip {
   display: flex;
   margin-top: 16%;
+}
+
+.trip-new-page .fa-circle-plus {
+  color: #FF9D00;
 }

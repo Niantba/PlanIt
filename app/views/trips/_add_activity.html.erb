@@ -6,8 +6,9 @@
   <%= f.input :start_date, as: :hidden, label: false,
               input_html: { value: date } %>
   <%= f.input :start_time, as: :string, label: false,
-              input_html: { data: { controller: 'flatpickr', flatpickr_type_value: "time" } }%>
+              input_html: { data: { controller: 'flatpickr', flatpickr_type_value: "time" } }
+              %>
   <%# <%= f.input :end_date, as: :string,
               input_html: { data: { controller: "flatpickr" } } %>
-  <%= f.button :submit, "Add activity", class:"form-btn" %>
+  <%= f.button :submit, "Add activity", class:"btn-modal" %>
 <% end %>
