@@ -14,4 +14,19 @@ class User < ApplicationRecord
   has_many_attached :documents
 
   validates :first_name, :last_name, :email, presence: true
+
+  def avatar
+    if image.attached?
+      return "<img src='#{image.url}'> #{first_name}".html_safe
+    else
+      return "
+        <div class='trip-banner-card-users-circle'>
+          <span class='trip-banner-card-users-initials'>
+            #{first_name.chars.first}
+          </span>
+        </div>
+        #{first_name}
+      ".html_safe
+    end
+  end
 end

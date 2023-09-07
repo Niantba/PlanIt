@@ -41,7 +41,7 @@
                                 input_html: { multiple: true, class:"tripmates" },
                                 include_hidden: false,
                                 collection: User.all.reject {|user| user == current_user},
-                                label_method: :first_name %>
+                                label_method: :avatar %>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn-modal" data-bs-dismiss="modal">Add tripmates</button>
