@@ -32,6 +32,9 @@
                   <small><%= activity.location %></small>
                 </div>
               </div>
+              <div class="border hide-unless-expanded">
+                <%= render "trips/activity_page", activity: activity %>
+              </div>
 
               <!-- Delete Button -->
               <%= link_to ('<i class="fa-solid fa-trash"></i>').html_safe, activity_path(activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this activity?"}%>
@@ -81,8 +84,6 @@
                   </div>
                 </div>
               </div>
-
-            <%= render "trips/activity_page", activity: activity %>
           </div>
         </div>
       <% end %>
