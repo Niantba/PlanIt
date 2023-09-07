@@ -3,7 +3,21 @@
   <% if @comments.any? %>
     <% @comments.each do |comment| %>
       <div class="each-comment">
-        <p><%= comment.user.first_name %> : <%= comment.content %></p>
+        <% if @users.any? %>
+          <div class="trip-banner-card-users">
+            <% @users.each do |user| %>
+              <% if user.image.attached? %>
+                <%= cl_image_tag user.image.key%>
+              <% else %>
+                <% initial = user.first_name.split ("") %>
+                <div class="trip-banner-card-users-circle">
+                  <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+        <p><%= comment.content %></p>
       </div>
     <% end %>
   <% else %>
