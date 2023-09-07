@@ -45,7 +45,7 @@
   background-color: #FEF3E0;
   font-weight: bold;
   border-radius: 20px;
-  margin: 150px auto 10px auto;
+  margin: 10px auto 10px auto;
   width: 180px;
   padding: 5px 15px;
   font-size: 15px;
@@ -53,6 +53,7 @@
   overflow: hidden;
 }
 
-small {
-  color: #545F71;
+.container-new-trip {
+  display: flex;
+  margin-top: 16%;
 }

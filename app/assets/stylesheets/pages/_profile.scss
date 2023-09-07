@@ -67,3 +67,11 @@
 .scrollmenu-profile {
   display: flex;
 }
+
+.log-out {
+  color: #800059;
+
+  &:hover {
+    color: #ed050a;
+  }
+}
