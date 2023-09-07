@@ -43,13 +43,15 @@
             <p>No more tripmates to add.</p>
           <% else %>
             <%= simple_form_for [@trip, @user_trip] do |f| %>
-              <%= f.association :user,
-                              as: :check_boxes,
-                              label: false,
-                              input_html: { multiple: true, class:"tripmates" },
-                              include_hidden: false,
-                              collection: User.where.not(id: @trip.users.pluck(:user_id)),
-                              label_method: :avatar %>
+              <div class="scrollmenu">
+                <%= f.association :user,
+                                as: :check_boxes,
+                                label: false,
+                                input_html: { multiple: true, class:"tripmates" },
+                                include_hidden: false,
+                                collection: User.where.not(id: @trip.users.pluck(:user_id)),
+                                label_method: :avatar %>
+              </div>
               <div class="modal-footer">
                 <%= f.button :submit, "Add tripmates", class: 'btn-modal' %>
               </div>
