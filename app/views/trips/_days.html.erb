@@ -32,9 +32,9 @@
                 </div>
               </div>
             </div>
-              <div class="border hide-unless-expanded">
-                <p><%= "comment box should be here" %></p>
-              </div>
+              <%# <div class="border hide-unless-expanded">
+
+              </div> %>
               <!-- Button trigger modal for comments-->
               <div class="day-activity-comment hide-unless-expanded">
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modal-activity-<%= activity.id %>">
@@ -57,11 +57,7 @@
                 </div>
               </div>
                   <%# <i class="commentlogo fa-regular fa-comment-dots d-none"></i> %>
-
-
-
             <%= render "trips/activity_page", activity: activity %>
-
           </div>
         </div>
       <% end %>

@@ -28,6 +28,13 @@ trip1 = Trip.new(
   destination: "Tokyo"
 )
 trip1.save!
+activities = Activity.new(
+  name: "Tokyo Tower",
+  location: "Chome-2-8 Shibakoen, Minato City, Tokyo 105-0011, Japan",
+  start_date: Date.new(2023, 9, 16)
+)
+activities.trip = trip1
+activities.save!
 
 trip2 = Trip.new(
   start_date: Date.new(2023, 10, 3),
