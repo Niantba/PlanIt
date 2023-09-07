@@ -59,12 +59,12 @@
   </div>
   <%# Add document form %>
   <%= simple_form_for(@user, url: profile_path, method: :patch) do |f| %>
-    <%= f.input :documents, as: :file, input_html: {multiple: true}, label: "Add document" %>
+    <%= f.input :documents, as: :file, input_html: {multiple: true}, label: " " %>
     <%= f.button :submit, "Add document", class: 'btn-primary' %>
   <% end %>
 
 <%# Previous trips scrolling bar %>
-  <h2>Previous trips</h2>
+  <%# <h2>Previous trips</h2> %>
   <%# For each trip %>
 
   <%# Log out %>
