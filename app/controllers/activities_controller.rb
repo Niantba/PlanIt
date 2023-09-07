@@ -15,12 +15,15 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
+    @trip = @activity.trip
     params[:activity][:start_date] = DateTime.parse([params[:activity][:start_date], params[:activity][:start_time]].join(' '))
     params[:activity].delete(:start_time)
-    @activity.update(params[:activity])
-    @activity.trip = @trip
-    authorize trip
-    redirect_to trip_path(@trip)
+    authorize @trip
+    if @activity.update(activity_params)
+      redirect_to trip_path(@trip)
+    else
+      redirect_to activity_path(@activity)
+    end
   end
 
   def destroy
@@ -34,6 +37,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:location, :category, :start_date, :price, :name)
+    params.require(:activity).permit(:location, :category, :start_date, :price, :name, :start_time)
   end
 end
