@@ -3,7 +3,7 @@
     <div class="col-12">
       <h1>New Expense</h1>
     </div>
-    <%= simple_form_for [@trip, @expense] do |f| %>
+    <%= simple_form_for [@trip, @expense], data: { controller: 'flatpickr', flatpickr_type_value: "expense" } do |f| %>
 
       <%= f.input :name, class: "form-control" %>
 
@@ -11,16 +11,27 @@
       <%= f.input :amount, class: "form-control" %>
 
 
-    <div class="select-div">
-      <%= f.input :category, collection: ["Transportation", "Shopping", "Entertainment", "Food", "Accomodation", "Others"], as: :radio_buttons %>
-    </div>
+      <%= f.input :date,
+                    as: :string,
+                    placeholder: "Date",
+                    label: false,
+                    input_html: { data: { flatpickr_target: "date" } } %>
+
+
+      <div class="select-div">
+        <%= f.input :category,
+                    collection: ["Transportation","Culture", "Shopping", "Entertainment", "Food", "Accomodation", "Others"],
+                    as: :radio_buttons %>
+      </div>
 
 
 
       <%= f.input :user_id,
                   collection: @trip.users,
                   label: 'Paid By',
-                  label_method: :first_name %>
+                  label_method: :first_name,
+                  input_html: { class: 'custom-input' } %>
+
 
       <%= f.association :users,
                         as: :check_boxes,
@@ -29,10 +40,16 @@
                         input_html: { multiple: true},
                         label_method: :first_name %>
 
+
+
     <div class="form-group" style="margin-top: 20px;">
       <%= f.button :submit, "Create Expense", class: "form-btn" %>
     </div>
     <% end %>
+    <div class="form-group" style="margin-top: 20px;">
+      <%= link_to "Cancel", trip_expenses_path, class: "form-btn" %>
+    </div>
+
   </div>
 </div>
 

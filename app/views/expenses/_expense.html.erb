@@ -1,25 +1,37 @@
-<div class='container'>
-  <table class="expenses-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Amount</th>
-        <th>Category</th>
-        <th>Paid By</th>
-      </tr>
-    </thead>
-    <tbody >
-      <% @expenses.each do |expense| %>
-        <tr class="expense-activity">
-          <td><%= expense.name %></td>
-          <td><%= number_to_currency(expense.amount) %></td>
-          <td><%= expense.category %></td>
-          <td><%= expense.user.first_name %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
- <%# unless trip.users.count == 1 %>
+<div class='expenses'>
+  <div class='expense-title'>
+    <p>Category</p>
+    <p>Expense</p>
+    <p>User</p>
+    <p>Amount</p>
+  </div>
+  <% @expenses.each do |expense| %>
+    <div class='expense-card'>
+      <%# add if statement for icon to match category %>
+      <i class="fas fa-home"></i>
+      <div class='expense-card-info'>
+        <div class='expense-card-info-name'>
+          <%= expense.name %>
+        </div>
+        <div class='expense-card-info-date'>
+          <span class="date"><%= expense.created_at.strftime("%d/%m/%Y") %></span>
+        </div>
+      </div>
+      <div class='expense-card-user'>
+        <% if expense.user.image.attached? %>
+          <%= cl_image_tag user.image.key%>
+        <% else %>
+        <% initial = expense.user.first_name.split ("") %>
+        <div class="trip-banner-card-users-circle">
+          <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
+        </div>
+        <% end %>
+      </div>
+      <div class="currency-expense">
+      <%= number_to_currency(expense.amount) %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <% @expenses.each do |expense| %>
@@ -31,24 +43,22 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>User</th>
-                <th>Balance</th>
-              </tr>
-            </thead>
-            <tbody>
+          <div class="balance-expenses">
+            <div class="header">
+              <p>User</p>
+              <p>Balance</p>
+            </div>
+            <div>
               <% @user_balances.each do |user_id, balance| %>
-                <tr>
-                  <td><%= User.find(user_id).first_name %></td>
-                  <td class="<%= balance >= 0 ? 'positive' : 'negative' %>">
-                  <%= number_to_currency(balance) %>
-                  </td>
-                </tr>
+                <div class="user-balance">
+                  <div class="user-name"><%= User.find(user_id).first_name %></div>
+                  <div class="balance <%= balance >= 0 ? 'positive' : 'negative' %>">
+                    <%= number_to_currency(balance) %>
+                  </div>
+                </div>
               <% end %>
-            </tbody>
-          </table>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="form-btn" data-bs-dismiss="modal">Close</button>

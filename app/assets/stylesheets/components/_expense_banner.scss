@@ -1,0 +1,91 @@
+.expense-banner {
+  background-size: cover;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  margin-bottom: 31px;
+}
+
+.expense-banner-card {
+  background-color: rgba(250, 243, 232, 0.8);
+  width: 80%;
+  padding: 15px 20px 0px 20px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: -15px
+}
+
+.expense-banner-card-icons i {
+  margin: 0px 5px;
+}
+
+.but-on {
+  margin-left: 10px;
+  display: flex;
+}
+
+
+.expense-banner-card h1,
+.expense-banner-card p {
+  text-align: center;
+}
+
+.expense-banner-card-users {
+  padding: 0px 5px;
+  display: flex;
+}
+// .expense-banner-card-users img,
+// .expense-banner-card-users-circle {
+//   margin-right: -40px;
+// }
+
+.expense-banner-card-icons {
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+}
+
+.expense-banner button{
+  display: flex;
+  align-items: flex-start;
+  border: none;
+  background-color: #ffffff00;
+}
+
+.day-date-icons button {
+  border: none;
+  background-color: #ffffff00;
+}
+
+.expense-banner-card-users-circle {
+  background-color: #3617A4;
+  border-radius: 50%;
+  height: 25px;
+  text-align: center;
+  width: 25px;
+  border: white 1px solid;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expense-banner-card-users-circle:not(:first-of-type) {
+  margin-left: -6px;
+}
+
+.expense-banner-card-users img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: white 1px solid;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+
+.expense-banner-card-users-initials {
+  font-size: 10px;
+  top: 25px;
+  color: white;
+}
