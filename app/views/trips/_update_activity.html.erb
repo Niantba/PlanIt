@@ -1,0 +1,9 @@
+<%= simple_form_for activity do |f| %>
+  <%= f.input :name, placeholder: "Name", label: false, required: true %>
+  <%= f.input :location, placeholder: "Location", label: false %>
+   <%= f.input :start_date, as: :hidden, label: false,
+              input_html: { value: date } %>
+  <%= f.input :start_time, as: :string, label: false,
+              input_html: { data: { controller: 'flatpickr', flatpickr_type_value: "time" } }%>
+  <%= f.button :submit, "Update activity", class:"form-btn" %>
+<% end %>

@@ -42,7 +42,8 @@
 }
 
 .trip-banner button,
-.day-activity-comment button {
+.day-activity-comment button,
+.edit-activity button {
   display: flex;
   align-items: flex-start;
   border: none;
@@ -83,4 +84,9 @@
   font-size: 10px;
   top: 25px;
   color: white;
+}
+.icon-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }

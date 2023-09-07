@@ -1,9 +1,9 @@
-<div class="profile-banner" style="background-image: url('https://images.unsplash.com/photo-1682685797140-c17807f8f217?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80')" >
+<div class="profile-banner" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80')" >
     <div class="profile-banner-card" >
       <% if @user.image.attached? %>
         <%= cl_image_tag @user.image.key%>
       <% else %>
-        <h5><%= link_to "Upload image", edit_user_registration_path %></h5>
+        <h5 class="text-center"><%= link_to "Upload image", edit_user_registration_path %></h5>
       <% end %>
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
     </div>
