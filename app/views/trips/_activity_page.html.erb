@@ -1,8 +1,6 @@
 
 <div data-activity-page-target="show" class="d-none">
 
-  <p>Location: <%= activity.location %></p>
-
   <% @comments = Comment.where(activity:activity) %>
     <% if @comments.any? %>
       <div class="each-comment">
