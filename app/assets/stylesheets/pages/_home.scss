@@ -29,7 +29,7 @@
     display: inline-block;
     width: 100px;
     height: 150px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     margin-inline-end: 10px;
     border-radius: 20px;
     overflow: hidden;
@@ -79,4 +79,15 @@ a {
 
 .home-page .fa-home {
   color: #FF9D00;
+}
+
+.tagline {
+  -webkit-text-stroke: 1px #130056;
+  -webkit-text-fill-color: #FF9D00;
+  text-shadow: 2px 2px #130056;
+  // font-weight: bolder;
+  font-size: 25px;
+  // font-variant: small-caps;
+  margin-left: 15px;
+  margin-bottom: 80px;
 }
