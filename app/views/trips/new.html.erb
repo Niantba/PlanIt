@@ -35,13 +35,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <%= f.association :users,
-                                as: :check_boxes,
-                                label: false,
-                                input_html: { multiple: true, class:"tripmates" },
-                                include_hidden: false,
-                                collection: User.all.reject {|user| user == current_user},
-                                label_method: :avatar %>
+                <div class="scrollmenu">
+                  <%= f.association :users,
+                                  as: :check_boxes,
+                                  label: false,
+                                  input_html: { multiple: true, class:"tripmates" },
+                                  include_hidden: false,
+                                  collection: User.all.reject {|user| user == current_user},
+                                  label_method: :avatar %>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn-modal" data-bs-dismiss="modal">Add tripmates</button>

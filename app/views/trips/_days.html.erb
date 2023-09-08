@@ -10,7 +10,7 @@
               data-add-activity-target="plus"> %>
               </i>
         </button>
-        <i class="fa-solid fa-paperclip"></i>
+
       </div>
     </div>
 
@@ -22,7 +22,6 @@
           <div class="day-activity" data-activity-page-target="activity">
             <div class="day-activity-info">
               <p data-action="click->activity-page#show"><%= activity.start_date.strftime("%I:%M %p") %></p>
-
               <i class="fa-solid fa-caret-right arrow"
                   data-action="click->activity-page#show"></i>
               <i class="fa-solid fa-caret-right fa-rotate-90 d-none" data-action="click->activity-page#show"></i>
@@ -30,7 +29,6 @@
                 <p data-action="click->activity-page#show"><%= activity.name%></p>
                 <div class="hide-unless-expanded">
                   <div class="location"><p><%= activity.location %></p></div>
-
                 </div>
               </div>
 
@@ -58,19 +56,17 @@
                     <div class="each-comment-showpage">
                       <% if @users.any? %>
                         <div class="trip-banner-card-users">
-                          <% @users.each do |user| %>
-                            <% if user.image.attached? %>
-                              <%= cl_image_tag user.image.key%>
-                            <% else %>
-                              <% initial = user.first_name.split ("") %>
-                              <div class="trip-banner-card-users-circle">
-                                <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
-                              </div>
-                            <% end %>
+                          <% if @comments.last.user.image.attached? %>
+                            <%= cl_image_tag @comments.last.user.image.key%>
+                          <% else %>
+                            <% initial = @comments.last.user.first_name.split ("") %>
+                            <div class="trip-banner-card-users-circle">
+                              <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
+                            </div>
                           <% end %>
                         </div>
                       <% end %>
-                      <p> <%= @comments.last.content %></p>
+                      <p><%= @comments.last.content %></p>
                     </div>
                   <% end %>
                 </div>
@@ -89,8 +85,30 @@
                       <i class="fa-solid fa-pen" data-activity-page-target="edit_activity"></i>
                     </button>
                   </div>
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#modal-file-<%= activity.id %>">
+                    <i class="fa-solid fa-paperclip"></i>
+                  </button>
                 </div>
 
+                <!-- Button trigger modal for files-->
+
+
+                <!-- Modal to add file -->
+
+                <div class="modal fade" id="modal-file-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add a file</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <%# Attach file %>
+                        <%= render "trips/attach_file", activity: activity %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <!-- Modal to add comment -->
                 <div class="modal fade" id="modal-activity-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

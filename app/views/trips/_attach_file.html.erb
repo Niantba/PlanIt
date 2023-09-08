@@ -1,0 +1,21 @@
+<%# Display current files %>
+<p>Files for <%= activity.name %></p>
+<div class="row">
+  <div class="scrollmenu">
+    <% activity.files.each do |file| %>
+      <div class="profile-doc-card">
+        <% if file.image? %>
+          <%= cl_image_tag file.key %>
+        <% else%>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/640px-PDF_file_icon.svg.png" alt="PDF_File">
+        <% end %>
+      </div>
+    <% end %>
+</div>
+</div>
+
+<%# Upload new files %>
+<%= simple_form_for(activity, ) do |f| %>
+  <%= f.input :files, as: :file, input_html: {multiple: true}, label: "Add files to activity" %>
+  <%= f.button :submit, "Attach files", class: 'form-btn' %>
+<% end %>

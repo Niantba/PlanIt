@@ -30,12 +30,14 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 65px;
+  max-width: 100px;
 }
 
 .navbar-lewagon span {
   font-family: 'Brasika';
   color: #FE9D02;
+  margin-bottom: -2px;
 }
 
 .navbar> .container-fluid {
@@ -57,6 +59,13 @@
 .navbar-planit-icons {
   display: flex;
   justify-content: space-around;
+}
+
+.custom-logo {
+  margin: 0px 5px 0px 0px;
+  height: auto;
+  margin-bottom: -10px;
+  margin-top: -8px;
 }
 
 

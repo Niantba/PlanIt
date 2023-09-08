@@ -7,10 +7,29 @@
 
 <div class="container">
   <% if current_user %>
-    <h3 class="py-3"> Upcoming trips </h3>
-    <div class="row">
-      <div class="scrollmenu">
-        <% @upcoming_trips.sort_by(&:start_date).each do |trip| %>
+    <% if @upcoming_trips.any? %>
+      <h3 class="py-3"> My upcoming trips </h3>
+      <div class="row">
+        <div class="scrollmenu">
+          <% @upcoming_trips.sort_by(&:start_date).each do |trip| %>
+            <a href="<%= trip_path(trip) %>">
+              <div class="homecard">
+                <div class="innertext">
+                  <img src="https://source.unsplash.com/random/?<%= trip.destination %>", class="object-fit-cover", alt="<%= trip.destination %>"/>
+                  <p><%= trip.destination %></p>
+                </div>
+              </div>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <h3 class="py-3"> Features Trips </h3>
+  <div class="row">
+    <div class="scrollmenu">
+      <% if @featured_trips.any? %>
+        <% @featured_trips.each do |trip| %>
           <a href="<%= trip_path(trip) %>">
             <div class="homecard">
               <div class="innertext">
@@ -23,7 +42,6 @@
       </div>
     </div>
   <% end %>
-
   <h3 class="py-3"> Featured trips </h3>
   <div class="row">
     <div class="scrollmenu">
@@ -33,14 +51,12 @@
             <div class="innertext">
               <img src="https://source.unsplash.com/random/?<%= trip.destination %>", class="object-fit-cover", alt="<%= trip.destination %>"/>
               <p><%= trip.destination %></p>
-
             </div>
           </div>
          </a>
       <% end %>
     </div>
   </div>
-
 </div>
 <div class="home-page">
   <%= render "navbarhome" %>
