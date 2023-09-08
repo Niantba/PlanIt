@@ -19,9 +19,7 @@
       </div>
       <div class='expense-card-user'>
         <% if expense.user.image.attached? %>
-        <div class="rounded-circle; height: 25px;">
           <%= cl_image_tag expense.user.image.key%>
-        </div>
         <% else %>
         <% initial = expense.user.first_name.split ("") %>
         <div class="trip-banner-card-users-circle">
