@@ -7,6 +7,17 @@
   display: flex;
   align-items: flex-end;
   position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0, 0.5);
+  backdrop-filter: blur(2px);
 }
 
 .homebtn {
@@ -18,6 +29,7 @@
   bottom: 8px;
   left: 16px;
   color: white;
+  text-shadow: 1px 1px #00000075;
 }
 
 .scrollmenu {
@@ -82,12 +94,12 @@ a {
 }
 
 .tagline {
-  -webkit-text-stroke: 1px #130056;
+  -webkit-text-stroke: 0.5px black;
   -webkit-text-fill-color: #FF9D00;
-  text-shadow: 2px 2px #130056;
-  // font-weight: bolder;
+  text-shadow: 1px 1px #59320dfa;
   font-size: 25px;
-  // font-variant: small-caps;
   margin-left: 15px;
   margin-bottom: 80px;
+  font-family: 'ADLaM Display';
+  z-index: 1;
 }
