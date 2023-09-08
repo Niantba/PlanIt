@@ -2,6 +2,7 @@ class Activity < ApplicationRecord
   belongs_to :trip
   has_many :expenses
   has_many :comments, dependent: :destroy
+  has_many_attached :files
 
   validates :name, :location, presence: true
 
