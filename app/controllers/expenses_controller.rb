@@ -6,6 +6,15 @@ class ExpensesController < ApplicationController
     @user_balances = calculate_user_balances(@expenses)
     @current_user_balance = @user_balances[current_user.id]
     @users = @trip.users
+    @category_icons = {
+      "Transportation" => "fas fa-car",
+      "Culture" => "fas fa-museum",
+      "Shopping" => "fas fa-shopping-bag",
+      "Entertainment" => "fas fa-film",
+      "Food" => "fas fa-utensils",
+      "Accommodation" => "fas fa-hotel",
+      "Others" => "fas fa-question"
+    }
   end
 
   def user_name(user_id)

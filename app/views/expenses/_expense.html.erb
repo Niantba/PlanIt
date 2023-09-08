@@ -1,14 +1,7 @@
 <div class='expenses'>
-  <div class='expense-title'>
-    <p>Category</p>
-    <p>Expense</p>
-    <p>User</p>
-    <p>Amount</p>
-  </div>
   <% @expenses.each do |expense| %>
     <div class='expense-card'>
-      <%# add if statement for icon to match category %>
-      <i class="fas fa-home"></i>
+      <i class="<%= @category_icons[expense.category] %>"></i>
       <div class='expense-card-info'>
         <div class='expense-card-info-name'>
           <%= expense.name %>
@@ -19,7 +12,7 @@
       </div>
       <div class='expense-card-user'>
         <% if expense.user.image.attached? %>
-          <%= cl_image_tag user.image.key%>
+          <%= cl_image_tag expense.user.image.key%>
         <% else %>
         <% initial = expense.user.first_name.split ("") %>
         <div class="trip-banner-card-users-circle">
@@ -33,7 +26,7 @@
     </div>
   <% end %>
 </div>
-
+<%# star modal %>
 <% @expenses.each do |expense| %>
   <div class="modal fade" id="modal-activity" tabindex="-1" aria-labelledby="modal-activity-label" aria-hidden="true">
     <div class="modal-dialog">

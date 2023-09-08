@@ -13,17 +13,27 @@
 
 
   i {
-    margin-top: 12px;
+    margin-top: 10px;
   }
 }
 
 .expense-card-user{
-  margin-top: 8px;
+  padding: 0px 5px;
+  display: flex;
+  img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: white 1px solid;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+    margin-top: 5px;
+  }
 }
 
 .expense-card-info-name{
   margin-left: 10px;
-  max-width: 70px;
+  max-width: 100px;
+  min-width: 70px;
 }
 
 .expense-card-info-date {
@@ -32,6 +42,8 @@
 
 .currency-expense{
   margin-top: 10px;
+  max-width: 70px;
+  min-width: 70px;
 }
 
 .expense-title {
@@ -62,38 +74,44 @@
 }
 
 
-.custom-input select {
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
-  padding: 5px;
-  width: 100%;
-  border-radius: 20px;
-}
+// .custom-input select {
+//   background-color: #f2f2f2;
+//   border: 1px solid #ccc;
+//   padding: 5px;
+//   width: 100%;
+//   transform: translateY(-50%);
+//   top: 50%;
+//   transition: transform 0.3s ease-out;
 
+// }
+
+.form-select{
+  max-height: 200px; /* Ajusta esta altura máxima según tus necesidades */
+  overflow-y: auto;
+  transform: translateY(0);
+  top: 0;
+  margin: auto;
+}
 .custom-input  {
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   padding: 5px;
-  width: 100%;
-  border-radius: 20px;
 }
 
 
 .balance-expenses {
-  /* Estilo general del balance */
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 15px;
+  background-color: #FEF3E0;
 }
 
 .header{
 display: flex;
 justify-content: space-between;
-
+border-bottom: solid;
 }
 
 .user-balance {
-  /* Estilo de cada entrada de usuario */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -101,13 +119,11 @@ justify-content: space-between;
 }
 
 .user-name {
-  /* Estilo del nombre del usuario */
   font-weight: bold;
 }
 
 .balance {
-  /* Estilo del balance */
-  font-size: 18px;
+    font-size: 18px;
   padding: 5px;
 }
 
@@ -118,4 +134,29 @@ justify-content: space-between;
 
 .positive {
   color: green;
+}
+
+
+.expense-banner-card-users-circle{
+
+  background-color: #3617A4;
+  border-radius: 50%;
+  height: 25px;
+  text-align: center;
+  width: 25px;
+  border: white 1px solid;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upward-modal .modal-dialog {
+  transform: translateY(-50%);
+  top: 50%;
+  transition: transform 0.3s ease-out;
+}
+
+.upward-modal .modal.fade.show {
+  top: 0;
 }
