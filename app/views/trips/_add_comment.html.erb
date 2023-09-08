@@ -5,7 +5,6 @@
       <div class="each-comment">
         <% if @users.any? %>
           <div class="trip-banner-card-users">
-            <%# @users.each do |user| %>
               <% if comment.user.image.attached? %>
                 <%= cl_image_tag comment.user.image.key%>
               <% else %>
@@ -14,7 +13,6 @@
                   <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
                 </div>
               <% end %>
-            <%# end %>
           </div>
         <% end %>
         <p><%= comment.content %></p>
