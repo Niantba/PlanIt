@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 expense-new">
       <h1>New Expense</h1>
     </div>
-    <%= simple_form_for [@trip, @expense], data: { controller: 'flatpickr', flatpickr_type_value: "expense" } do |f| %>
+
+    <div class="row expense-imp">
+      <%= simple_form_for [@trip, @expense], data: { controller: 'flatpickr', flatpickr_type_value: "expense" } do |f| %>
 
       <%= f.input :name, class: "form-control" %>
 
@@ -40,10 +42,9 @@
                         input_html: { multiple: true, class: 'upward-modal'},
                         label_method: :first_name %>
 
-
-
-    <div class="form-group" style="margin-top: 20px;">
-      <%= f.button :submit, "Create Expense", class: "form-btn" %>
+      <div class="form-group" style="margin-top: 20px;">
+        <%= f.button :submit, "Create Expense", class: "form-btn" %>
+      </div>
     </div>
     <% end %>
     <div class="form-group" style="margin-top: 20px;">

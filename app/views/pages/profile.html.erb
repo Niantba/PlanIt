@@ -10,11 +10,11 @@
       <% @users.each do |user| %>
         <div class="profile-friend-card">
           <% if user.image.attached? %>
-            <%= cl_image_tag @user.image.key%>
+            <%= cl_image_tag user.image.key %>
           <% else %>
-            <% initial = user.first_name.split ("") %>
+            <% initials = user.first_name.split("") %>
             <div class="circle">
-              <span class="initials"><%= initial[0] %></span>
+              <span class="initials"><%= initials[0] %></span>
             </div>
           <% end %>
         </div>
@@ -64,7 +64,6 @@
   <%# Log out %>
   <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"log-out p-2"%>
 </div>
-
 <div class="profile-page">
-  <%= render "navbarhome" %>
+<%= render "navbarhome" %>
 </div>

@@ -49,49 +49,49 @@ activity1 = Activity.create(
   name: "Tokyo Skytree",
   trip: trip1,
   location: "1 Chome-1-2 Oshiage, Sumida City, Tokyo 131-0045, Japan",
-  start_date: "2023-09-15"
+  start_date: "2023-09-15 10:00:00"
 )
 activity2 = Activity.create(
-  name: "Yoyogi Park",
-  trip: trip1,
-  location: "2-1 Yoyogikamizonocho, Shibuya City, Tokyo 151-0052, Japan",
-  start_date: "2023-09-16"
-)
-activity3 = Activity.create(
-  name: "Ghibli Museum",
-  trip: trip1,
-  location: "1 Chome-1-83 Shimorenjaku, Mitaka, Tokyo 181-0013, Japan",
-  start_date: "2023-09-17"
-)
-activity4 = Activity.create(
-  name: "Akihabara Electric Town",
-  trip: trip1,
-  location: "Akihabara",
-  start_date: "2023-09-18"
-)
-activity5 = Activity.create(
   name: "Kozue",
   trip: trip1,
   location: "Park Hyatt Tokyo, 40階, 3-chōme-7-1-2 Nishishinjuku, Shinjuku City, Tokyo 160-0023, Japan",
-  start_date: "2023-09-15"
+  start_date: "2023-09-15 17:00:00"
 )
-activity6 = Activity.create(
+activity3 = Activity.create(
+  name: "Yoyogi Park",
+  trip: trip1,
+  location: "2-1 Yoyogikamizonocho, Shibuya City, Tokyo 151-0052, Japan",
+  start_date: "2023-09-16 13:00:00"
+)
+activity4 = Activity.create(
   name: "Bar Benfiddich",
   trip: trip1,
   location: "Japan, 〒160-0023 Tōkyō-to, Shinjuku-ku, Nishishinjuku, 1 Chome 13, 西新宿1ｰ13ｰ7",
-  start_date: "2023-09-16"
+  start_date: "2023-09-16 18:00:00"
 )
-activity7 = Activity.create(
+activity5 = Activity.create(
+  name: "Ghibli Museum",
+  trip: trip1,
+  location: "1 Chome-1-83 Shimorenjaku, Mitaka, Tokyo 181-0013, Japan",
+  start_date: "2023-09-17 12:00:00"
+)
+activity6 = Activity.create(
   name: "Tamawarai",
   trip: trip1,
   location: "神宮前5-23-3, Tokyo, Tōkyō 150-0001, Japan",
-  start_date: "2023-09-17"
+  start_date: "2023-09-17 18:00:00"
+)
+activity7 = Activity.create(
+  name: "Akihabara Electric Town",
+  trip: trip1,
+  location: "Akihabara",
+  start_date: "2023-09-18 15:00:00"
 )
 activity8 = Activity.create(
   name: "Onigiri Manma",
   trip: trip1,
   location: "Japan, 〒160-0022 Tokyo, Shinjuku City, Shinjuku, 3-chōme 14 231F",
-  start_date: "2023-09-18"
+  start_date: "2023-09-18 20:00:00"
 )
 comment1 = Comment.create(
   user: fred,
@@ -161,27 +161,5 @@ trip10 = Trip.new(
   end_date: Date.new(2023, 12, 8)
 )
 trip10.save!
-
-# 5.times do
-#   trip = Trip.new(
-#     start_date: Date.new(2023, 8, 31),
-#     end_date: Date.new(2023, 9, 10),
-#     destination: Faker::WorldCup.city,
-#     private: Faker::Boolean.boolean
-#   )
-#   trip.save!
-#   5.times do
-#     activities = Activity.new(
-#       name: Faker::WorldCup.city,
-#       location: Faker::WorldCup.city,
-#       start_date: Faker::Date.between(from: '2023-08-31', to: '2023-09-05'),
-#       end_date: Faker::Date.between(from: '2023-09-05', to: '2023-09-10'),
-#       category: Faker::Commerce.department,
-#       price: rand(150)
-#     )
-#     activities.trip = trip
-#     activities.save!
-#   end
-# end
 
 puts "Seeds created"
