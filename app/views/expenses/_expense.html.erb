@@ -11,16 +11,14 @@
         </div>
       </div>
       <div class='expense-card-user'>
-        <% @users.each do |user| %>
-            <% if user.image.attached? %>
-              <%= cl_image_tag user.image.key%>
-            <% else %>
-              <% initial = user.first_name.split ("") %>
-              <div class="expense-banner-card-users-circle">
-                <span class="expense-banner-card-users-initials"><%= initial[0] %></span>
-              </div>
-            <% end %>
-          <% end %>
+        <% if expense.user.image.attached? %>
+          <%= cl_image_tag expense.user.image.key%>
+        <% else %>
+        <% initial = expense.user.first_name.split ("") %>
+        <div class="trip-banner-card-users-circle">
+          <span class="trip-banner-card-users-initials"><%= initial[0] %></span>
+        </div>
+        <% end %>
       </div>
       <div class="currency-expense">
       <%= number_to_currency(expense.amount) %>
