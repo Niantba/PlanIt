@@ -46,8 +46,8 @@
 
 .avatar-image {
   vertical-align: middle;
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   box-shadow: 3px 3px 2px #00000091;
 }
@@ -69,15 +69,22 @@
   font-weight: bolder;
 }
 
-.form-check .tripmates:checked + label {
+.form-check .tripmates + label {
   cursor: pointer;
   border-radius: 20px;
-  background-color: #800059;
-  padding: 5px 15px;
+  padding: 5px 10px;
   text-align: center;
+}
+
+
+.form-check .tripmates:checked + label {
+  background-color: #800059;
   color: #FEF3E0;
 }
 
+.scrollmenu-friends .form-check:not(:first-child) {
+  padding-left: 8px;
+}
 
 
 // Address field
