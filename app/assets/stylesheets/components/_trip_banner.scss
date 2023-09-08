@@ -6,15 +6,21 @@
   align-items: flex-end;
   position: relative;
   margin-bottom: 31px;
+  transition:
+    height 0.25s linear;
 }
 
 .trip-banner-card {
   background-color: rgba(250, 243, 232, 0.8);
   width: 80%;
+  height: 131px;
   padding: 15px 20px 0px 20px;
   border-radius: 20px;
   position: absolute;
-  bottom: -15px
+  bottom: -15px;
+  // transition:
+  //   all 3s,
+  //   background-color 3s linear;
 }
 
 .trip-banner-card-icons i {
@@ -93,4 +99,36 @@
   display: flex;
   align-items: center;
   justify-content: end;
+}
+
+// collapse version
+header.sticky {
+  position: fixed;
+  width: 100%;
+  top: -110px;
+  height: 75px;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+
+  .trip-banner-card {
+    // position: fixed;
+    // top: -110px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(250, 243, 232, 0.5);
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+    justify-content: space-around;
+    padding-top: 0;
+    bottom: 0;
+
+    p {
+      display: none;
+    }
+  }
+}
+
+.sticky {
+  margin-top: 110px;
 }

@@ -1,9 +1,13 @@
 <div data-controller="display-map"
      data-display-map-markers-value="<%= @markers.to_json %>"
      data-display-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  <div data-display-map-target="banner" class="trip-banner">
+  <header data-display-map-target="banner" class="trip-banner"
+
+          data-navbar-collapse-target="banner"
+        >
     <img src="https://source.unsplash.com/random/?<%= @trip.destination %>", alt="<%= @trip.destination %>" width= "100%" height="100%"/>
-    <div class="trip-banner-card">
+    <div class="trip-banner-card"
+          data-navbar-collapse-target="info">
       <h1><%= @trip.destination %></h1>
       <p><%= @trip.start_date.strftime("%e/%m/%y") %> ~ <%= @trip.end_date.strftime("%e/%m/%y") %></p>
       <div class="trip-banner-card-icons">
@@ -11,7 +15,9 @@
         <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="fa-solid fa-user-plus"></i>
         </button>
-        <i data-action="click->display-map#fire" class="fa-solid fa-map-location-dot"></i>
+        <i data-action="click->display-map#fire"
+           data-navbar-collapse-target="map"
+           class="fa-solid fa-map-location-dot"></i>
         <% if @users.any? %>
           <div class="trip-banner-card-users">
             <% @users.each do |user| %>
@@ -28,7 +34,8 @@
         <% end %>
       </div>
     </div>
-  </div>
+  </header>
+
 
   <!-- Modal to add tripmates -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
