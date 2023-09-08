@@ -2,7 +2,7 @@
 <p>Files for <%= activity.name %></p>
 <div class="row">
   <div class="scrollmenu">
-    <% @activity.files.each do |file| %>
+    <% activity.files.each do |file| %>
       <div class="profile-doc-card">
         <% if file.image? %>
           <%= cl_image_tag file.key %>
@@ -15,7 +15,7 @@
 </div>
 
 <%# Upload new files %>
-<%= simple_form_for(@activity, url: activity_path, method: :patch) do |f| %>
-  <%= f.input :files, as: :file, input_html: {multiple: true}, label: "Add file to activity" %>
-  <%= f.button :submit, "Attach a file", class: 'form-btn' %>
+<%= simple_form_for(activity, ) do |f| %>
+  <%= f.input :files, as: :file, input_html: {multiple: true}, label: "Add files to activity" %>
+  <%= f.button :submit, "Attach files", class: 'form-btn' %>
 <% end %>
