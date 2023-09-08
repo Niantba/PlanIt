@@ -40,7 +40,7 @@
   border: none;
 }
 
-.modal-body legend {
+.scrollmenu legend {
   display:none;
 }
 
@@ -64,4 +64,11 @@
 
 .trip-new-page .fa-circle-plus {
   color: #FF9D00;
+}
+
+.scrollmenu-friends {
+  width:100%;
+  // width: 100vw;
+  // margin-left: -24px;
+  // margin-right: -24px;
 }
