@@ -82,30 +82,6 @@
   margin: auto;
 }
 
-// .custom-input select {
-//   background-color: #f2f2f2;
-//   border: 1px solid #ccc;
-//   padding: 5px;
-//   width: 100%;
-//   transform: translateY(-50%);
-//   top: 50%;
-//   transition: transform 0.3s ease-out;
-
-// }
-
-.form-select{
-  max-height: 200px; /* Ajusta esta altura máxima según tus necesidades */
-  overflow-y: auto;
-  transform: translateY(0);
-  top: 0;
-  margin: auto;
-}
-.custom-input  {
-  border: 2px solid #ccc;
-  padding: 5px;
-}
-
-
 .balance-expenses {
   border: 1px solid #ccc;
   padding: 10px;
